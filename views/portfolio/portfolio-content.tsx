@@ -6,8 +6,8 @@ import { useTabState } from '@/hooks/use-tab-manager';
 
 import { Epoch } from '../stake/components';
 import Coins from './components/coins';
-import Lst from './components/lst';
-import LstNft from './components/lst-nft';
+import LstNft from './components/lst-nfts';
+import LSTs from './components/lsts';
 import NativeStakedWal from './components/native-staked-wal';
 import PortfolioTabs from './components/portfolio-tabs';
 
@@ -29,7 +29,7 @@ const PortfolioContent: FC = () => {
       <PortfolioTabs />
       {
         [
-          <Lst key={unikey()} />,
+          <LSTs key={unikey()} />,
           <NativeStakedWal key={unikey()} />,
           <LstNft key={unikey()} />,
           <Coins key={unikey()} />,

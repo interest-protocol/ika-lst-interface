@@ -1,15 +1,15 @@
-import { Div, H2, P } from '@stylin.js/elements';
+import { H2 } from '@stylin.js/elements';
 import type { FC } from 'react';
 
-import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
+import LSTsTable from './components/lsts-table';
 
-const Lst: FC = () => {
+const LSTs: FC = () => {
   return (
     <>
       <H2 color="#FFFFFF" fontSize="1rem" fontWeight="500">
         LSTs
       </H2>
-      <Div
+      {/* <Div
         width="100%"
         minHeight="192px"
         bg="#FFFFFF0D"
@@ -36,9 +36,10 @@ const Lst: FC = () => {
           cursor={'pointer'}
           bg={'#EE2B5B'}
         />
-      </Div>
+      </Div> */}
+      <LSTsTable />
     </>
   );
 };
 
-export default Lst;
+export default LSTs;
