@@ -1,7 +1,7 @@
-import { Div, H2, P } from '@stylin.js/elements';
+import { H2 } from '@stylin.js/elements';
 import type { FC } from 'react';
 
-import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
+import LstNftsTable from './components/lst-nfts-table';
 
 const LstNft: FC = () => {
   return (
@@ -9,7 +9,7 @@ const LstNft: FC = () => {
       <H2 color="#FFFFFF" fontSize="1rem" fontWeight="500">
         Native Staked Wal
       </H2>
-      <Div
+      {/* <Div
         width="100%"
         minHeight="192px"
         bg="#FFFFFF0D"
@@ -36,7 +36,8 @@ const LstNft: FC = () => {
           cursor={'pointer'}
           bg={'#EE2B5B'}
         />
-      </Div>
+      </Div> */}
+      <LstNftsTable />
     </>
   );
 };
