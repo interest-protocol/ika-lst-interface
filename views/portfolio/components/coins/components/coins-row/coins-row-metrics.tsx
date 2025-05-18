@@ -6,9 +6,9 @@ import { FixedPointMath } from '@/lib/entities/fixed-point-math';
 import { formatDollars, formatMoney } from '@/utils';
 import { usePoolsMetrics } from '@/views/pools/components/pools-stats/pools-stats.hooks';
 
-import { LSTsRowMetricsProps } from './coins-row.types';
+import { CoinsRowMetricsProps } from './coins-row.types';
 
-const LSTsRowMetrics: FC<LSTsRowMetricsProps> = ({ position }) => {
+const CoinsRowMetrics: FC<CoinsRowMetricsProps> = ({ position }) => {
   const { metrics, isLoading: metricsLoading } = usePoolsMetrics();
 
   return (
@@ -63,4 +63,4 @@ const LSTsRowMetrics: FC<LSTsRowMetricsProps> = ({ position }) => {
   );
 };
 
-export default LSTsRowMetrics;
+export default CoinsRowMetrics;
