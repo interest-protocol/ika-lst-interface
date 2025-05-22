@@ -1,6 +1,6 @@
 import { formatDollars } from '@/utils';
 
-export const LENDING_OPTIONS = [
+export const LENDING_DATA = [
   {
     platform: 'Nemo',
     imageUrl: '/blizzard-nft.png',

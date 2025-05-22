@@ -2,9 +2,8 @@ import { Div } from '@stylin.js/elements';
 import { FC } from 'react';
 import unikey from 'unikey';
 
-import { LENDING_OPTIONS } from '@/constants/lending-options';
-
 import LendingCard from './components/lending-card';
+import { LENDING_DATA } from './lending.data';
 
 const All: FC = () => (
   <Div
@@ -17,7 +16,7 @@ const All: FC = () => (
     my={['1rem', '1rem', '1rem', '1rem', '3rem']}
   >
     <Div gap="1rem" width="100%" display="flex" flexDirection="column">
-      {LENDING_OPTIONS.map((option) => (
+      {LENDING_DATA.map((option) => (
         <LendingCard key={unikey()} {...option} />
       ))}
     </Div>
