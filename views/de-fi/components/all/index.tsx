@@ -2,7 +2,7 @@ import { Div } from '@stylin.js/elements';
 import { FC } from 'react';
 import unikey from 'unikey';
 
-import { LENDINGOPTIONS } from '@/constants/lending-options';
+import { LENDING_OPTIONS as LENDINGOPTIONS } from '@/constants/lending-options';
 
 import LendingCard from './components/lending-card';
 
