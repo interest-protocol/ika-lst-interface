@@ -3,7 +3,7 @@ export enum RoutesEnum {
   Pools = 'pools',
   Stats = 'stats',
   Portfolio = 'porfolio',
-  DeFi = 'defi',
+  DeFi = 'de-fi',
 }
 
 export const Routes: Record<RoutesEnum, string> = {
