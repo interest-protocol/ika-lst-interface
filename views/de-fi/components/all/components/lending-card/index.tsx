@@ -15,42 +15,40 @@ const LendingCard: FC<ILendingCard> = ({
   tvl,
   category,
   points,
-}) => {
-  return (
+}) => (
+  <Div
+    p="1rem"
+    gap="1rem"
+    bg="#121212"
+    width="100%"
+    display="flex"
+    border="1px solid"
+    borderRadius="1rem"
+    flexDirection="column"
+    borderColor="#FFFFFF1A"
+  >
+    <LendingBadge platform={platform} imageUrl={imageUrl} />
     <Div
-      p="1rem"
-      gap="1rem"
-      bg="#121212"
       width="100%"
-      display="flex"
-      border="1px solid"
-      borderRadius="1rem"
-      flexDirection="column"
-      borderColor="#FFFFFF1A"
+      display="grid"
+      gridTemplateColumns={[
+        'repeat(2, 1fr)',
+        'repeat(2, 1fr)',
+        'repeat(5, 1fr)',
+      ]}
+      gap="0.5rem"
     >
-      <LendingBadge platform={platform} imageUrl={imageUrl} />
-      <Div
-        width="100%"
-        display="grid"
-        gridTemplateColumns={[
-          'repeat(2, 1fr)',
-          'repeat(2, 1fr)',
-          'repeat(5, 1fr)',
-        ]}
-        gap="0.5rem"
-      >
-        <InfoBox
-          value={asset}
-          label="Assets"
-          iconImages={[assetIconA, assetIconB]}
-        />
-        <InfoBox label="APR" value={apr} />
-        <InfoBox label="TVL" value={tvl} />
-        <InfoBox label="Category" value={category} />
-        <InfoBox label="SEND Points" value={points} />
-      </Div>
+      <InfoBox
+        value={asset}
+        label="Assets"
+        iconImages={[assetIconA, assetIconB]}
+      />
+      <InfoBox label="APR" value={apr} />
+      <InfoBox label="TVL" value={tvl} />
+      <InfoBox label="Category" value={category} />
+      <InfoBox label="SEND Points" value={points} />
     </Div>
-  );
-};
+  </Div>
+);
 
 export default LendingCard;
