@@ -1,3 +1,5 @@
+import { formatDollars } from '@/utils';
+
 export const LENDINGOPTIONS = [
   {
     platform: 'Nemo',
@@ -6,7 +8,7 @@ export const LENDINGOPTIONS = [
     assetIconB: '/blizzard-nft.png',
     asset: 'WAL-SUI',
     apr: '2.21%',
-    tvl: '$66.4K',
+    tvl: `$${formatDollars(66.132131313131)}`,
     category: 'Lending',
     points: '0.033/WAL/day',
   },
@@ -17,7 +19,7 @@ export const LENDINGOPTIONS = [
     assetIconB: '/blizzard-nft.png',
     asset: 'WAL-SUI',
     apr: '2.21%',
-    tvl: '$66.4K',
+    tvl: `$${formatDollars(133.13313131)}`,
     category: 'Lending',
     points: '',
   },
