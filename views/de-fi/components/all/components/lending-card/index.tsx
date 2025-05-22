@@ -1,5 +1,5 @@
 import { Div } from '@stylin.js/elements';
-import type { FC } from 'react';
+import { FC } from 'react';
 
 import InfoBox from '../info-box';
 import LendingBadge from '../lending-badge';
