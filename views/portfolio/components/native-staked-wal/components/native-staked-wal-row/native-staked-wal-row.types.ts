@@ -1,16 +1,14 @@
-import BigNumber from 'bignumber.js';
-
-import { SdkPool } from '@/interface';
-
-export interface NativeStakedWalRowProps extends SdkPool {
-  id: string;
-  position?: BigNumber | null;
+export interface NativeStakedWalRowProps {
+  token: string;
+  iconUrl: string;
+  symbol: string;
+  totalStaked: string;
+  toWithdraw: number;
+  status: string;
 }
 
 export interface NativeStakedWalRowMetadataProps {
-  lpCoinType: string;
-}
-
-export interface NativeStakedWalRowMetricsProps {
-  position?: BigNumber | null;
+  iconUrl: string;
+  token: string;
+  symbol: string;
 }

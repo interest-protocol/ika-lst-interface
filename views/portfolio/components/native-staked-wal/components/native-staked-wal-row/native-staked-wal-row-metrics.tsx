@@ -2,65 +2,46 @@ import { Span } from '@stylin.js/elements';
 import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { FixedPointMath } from '@/lib/entities/fixed-point-math';
-import { formatDollars, formatMoney } from '@/utils';
-import { usePoolsMetrics } from '@/views/pools/components/pools-stats/pools-stats.hooks';
+import { formatDollars } from '@/utils';
+import { getStatusUIConfig } from '@/utils/status-ui-config';
 
-import { NativeStakedWalRowMetricsProps } from './native-staked-wal-row.types';
+import NativeStakedWalRowButtonStatus from './native-staked-wal-row-button-status';
+import { NativeStakedWalRowMetricsProps } from './native-staked-wal-row-metrics.types';
 
 const NativeStakedWalRowMetrics: FC<NativeStakedWalRowMetricsProps> = ({
-  position,
+  totalStaked,
+  toWithdraw,
+  status,
 }) => {
-  const { metrics, isLoading: metricsLoading } = usePoolsMetrics();
+  const isLoading = !totalStaked || !toWithdraw || !status;
+  const statusStyles = getStatusUIConfig(status);
 
   return (
     <>
-      {position && (
-        <Span whiteSpace="nowrap" textAlign="center">
-          {metricsLoading ? (
-            <Skeleton width="4rem" />
-          ) : (
-            <Span whiteSpace="nowrap">
-              {position
-                ? formatMoney(
-                    +FixedPointMath.toNumber(position).toFixed(4),
-                    6,
-                    true
-                  )
-                : metrics
-                  ? formatDollars(Number(metrics.tvl), 6, true)
-                  : '--'}
-            </Span>
-          )}
-        </Span>
-      )}
-      <Span whiteSpace="nowrap" textAlign="center">
-        {metricsLoading ? (
+      <Span color="#FFFFFF" textAlign="center" fontSize="0.875rem">
+        {isLoading ? <Skeleton width="4rem" /> : totalStaked}
+      </Span>
+
+      <Span color="#FFFFFF" fontSize="0.875rem" textAlign="center">
+        {isLoading ? (
           <Skeleton width="4rem" />
         ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.tvl), 6, true) : '--'}
-          </Span>
+          formatDollars(Number(toWithdraw))
         )}
       </Span>
-      <Span whiteSpace="nowrap" textAlign="center">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? `${Number(metrics.apr ?? 0).toFixed(2)}%` : '--'}
-          </Span>
-        )}
+
+      <Span
+        textAlign="center"
+        borderRadius="16px"
+        fontSize="0.875rem"
+        padding="0.5rem 0.6rem"
+        color={statusStyles.color}
+        backgroundColor={statusStyles.bg}
+      >
+        {isLoading ? <Skeleton width="4rem" /> : status}
       </Span>
-      <Span whiteSpace="nowrap" textAlign="center">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.volume1D), 6, true) : '--'}
-          </Span>
-        )}
-      </Span>
+
+      <NativeStakedWalRowButtonStatus status={status} />
     </>
   );
 };
