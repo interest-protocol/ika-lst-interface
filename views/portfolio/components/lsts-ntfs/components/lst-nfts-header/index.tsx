@@ -3,10 +3,10 @@ import { FC } from 'react';
 
 import { formatDollars } from '@/utils';
 
-import { LSTsHeaderProps } from './lst.header.types';
+import { LSTNFTsHeaderProps } from './lst-nfts.header.types';
 import StatBox from './stat-box';
 
-const LSTsHeader: FC<LSTsHeaderProps> = ({ totalTokens, totalValue }) => (
+const LSTNFTsHeader: FC<LSTNFTsHeaderProps> = ({ totalTokens, totalValue }) => (
   <Div
     display="flex"
     alignItems="center"
@@ -25,4 +25,4 @@ const LSTsHeader: FC<LSTsHeaderProps> = ({ totalTokens, totalValue }) => (
   </Div>
 );
 
-export default LSTsHeader;
+export default LSTNFTsHeader;

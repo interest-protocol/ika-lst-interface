@@ -1,14 +1,10 @@
-import { H2 } from '@stylin.js/elements';
-import type { FC } from 'react';
+import { FC } from 'react';
 
-import LstNftsTable from './components/lst-nfts-table';
+import LSTsTable from './components/lsts-table';
 
-const LstNft: FC = () => {
+const LSTNFTs: FC = () => {
   return (
     <>
-      <H2 color="#FFFFFF" fontSize="1rem" fontWeight="500">
-        Native Staked Wal
-      </H2>
       {/* <Div
         width="100%"
         minHeight="192px"
@@ -37,9 +33,9 @@ const LstNft: FC = () => {
           bg={'#EE2B5B'}
         />
       </Div> */}
-      <LstNftsTable />
+      <LSTsTable />
     </>
   );
 };
 
-export default LstNft;
+export default LSTNFTs;
