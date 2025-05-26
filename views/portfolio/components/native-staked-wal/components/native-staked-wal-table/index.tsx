@@ -2,7 +2,7 @@ import { Div, P } from '@stylin.js/elements';
 import { FC } from 'react';
 import unikey from 'unikey';
 
-import NativeStakedWalHeader from '../lst-nfts-header';
+import NativeStakedWalHeader from '../native-staked-wal-header';
 import NativeStakedWalRow from '../native-staked-wal-row';
 import { NATIVE_STALKEDWAL } from './native-stalked-wal.data';
 
