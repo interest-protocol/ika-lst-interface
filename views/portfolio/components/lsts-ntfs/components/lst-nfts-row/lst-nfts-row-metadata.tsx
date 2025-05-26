@@ -7,27 +7,33 @@ import { LSTNFTsRowMetadataProps } from './lsts-row.types';
 const LSTNFTsRowMetadata: FC<LSTNFTsRowMetadataProps> = ({
   symbol,
   iconUrl,
+  token,
 }) => {
   const isLoading = !iconUrl;
 
   return (
-    <Div display="flex" alignItems="center" gap="0.5rem">
-      <Div width="1.5rem" height="1.5rem" overflow="hidden" borderRadius="50%">
+    <Div gap="0.5rem" display="flex" alignItems="center">
+      <Div width="1.5rem" height="1.5rem" overflow="hidden" borderRadius="4px">
         {isLoading ? (
-          <Skeleton width="100%" height="100%" circle />
+          <Skeleton circle width="100%" height="100%" />
         ) : (
           <Img
             width="100%"
             height="100%"
             alt={symbol}
             src={iconUrl}
-            borderRadius="50%"
+            borderRadius="4px"
           />
         )}
       </Div>
-      <Span color="#FFFFFF" fontSize="0.875rem" fontWeight="500">
-        {symbol}
-      </Span>
+      <Div gap="0.2rem" display="flex" flexDirection="column">
+        <Span color="#FFFFFF" fontWeight="500" fontSize="0.875rem">
+          {token}
+        </Span>
+        <Span color="#FFFFFF" fontWeight="500" fontSize="0.875rem">
+          {symbol}
+        </Span>
+      </Div>
     </Div>
   );
 };

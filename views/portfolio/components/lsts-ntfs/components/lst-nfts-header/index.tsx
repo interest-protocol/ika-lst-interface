@@ -15,7 +15,7 @@ const LSTNFTsHeader: FC<LSTNFTsHeaderProps> = ({ totalTokens, totalValue }) => (
     justifyContent="space-between"
   >
     <P color="#FFFFFF" fontSize="1rem" fontWeight="600">
-      LSTs
+      LST NFTs
     </P>
 
     <Div display="flex" flexWrap="wrap" gap={['0.375rem', '0.5rem']}>

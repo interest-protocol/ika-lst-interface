@@ -23,7 +23,7 @@ const LSTNFTsTable: FC = () => (
         px="1rem"
         pb="0.5rem"
         display={['none', 'none', 'grid']}
-        gridTemplateColumns="1fr 1fr 1fr 1fr"
+        gridTemplateColumns="1fr 1fr 1fr 1fr 1fr"
       >
         <P color="#FFFFFF80" fontSize="0.875rem" fontFamily="JetBrains Mono">
           LST
@@ -43,14 +43,6 @@ const LSTNFTsTable: FC = () => (
           fontFamily="JetBrains Mono"
         >
           To Withdraw
-        </P>
-        <P
-          color="#FFFFFF80"
-          textAlign="center"
-          fontSize="0.875rem"
-          fontFamily="JetBrains Mono"
-        >
-          Action
         </P>
       </Div>
 

@@ -1,15 +1,14 @@
 export interface LSTNFTsRowProps {
-  name: string;
-  subtitle: string;
-  iconUrl?: string;
-  symbol?: string;
+  token: string;
+  iconUrl: string;
+  symbol: string;
   totalStaked: string;
-  toWithdraw: string;
+  toWithdraw: number;
   status: string;
-  action: string;
 }
 
 export interface LSTNFTsRowMetadataProps {
   iconUrl: string;
+  token: string;
   symbol: string;
 }
