@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import LSTsTable from './components/lsts-table';
+import LSTNFTsTable from './components/lst-nfts-table';
 
 const LSTNFTs: FC = () => {
   return (
@@ -33,7 +33,7 @@ const LSTNFTs: FC = () => {
           bg={'#EE2B5B'}
         />
       </Div> */}
-      <LSTsTable />
+      <LSTNFTsTable />
     </>
   );
 };
