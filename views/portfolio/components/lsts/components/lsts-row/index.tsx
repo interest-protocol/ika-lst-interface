@@ -1,36 +1,45 @@
 import { Div } from '@stylin.js/elements';
-import Link from 'next/link';
 import { FC } from 'react';
-
-import { Routes, RoutesEnum } from '@/constants';
 
 import { LSTsRowProps } from './lsts-row.types';
 import LSTsRowMetadata from './lsts-row-metadata';
 import LSTsRowMetrics from './lsts-row-metrics';
+import LSTsRowMetricsMobile from './lsts-row-metrics-mobile';
 
-const LSTsRow: FC<Omit<LSTsRowProps, 'objectId'>> = ({
-  id,
-  position,
-  lpCoinType,
-}) => (
-  <Link href={`${Routes[RoutesEnum.Pools]}/${id}`} shallow>
+const LSTsRow: FC<LSTsRowProps> = ({
+  symbol,
+  iconUrl,
+  balance,
+  price,
+  value,
+}) => {
+  return (
     <Div
-      p="1rem"
-      color="#ffffff"
+      cursor="pointer"
       border="1px solid"
-      fontSize="0.875rem"
       alignItems="center"
       borderColor="#FFFFFF1A"
       borderRadius="0.625rem"
-      display="grid"
-      gridTemplateColumns="1fr 1fr 1fr 1fr"
+      p={['1rem', '1rem', '1rem']}
+      display={['block', 'block', 'grid']}
       transition="background-color 0.2s ease"
-      nHover={{ borderColor: '#EE2B5BD', bg: '#EE2B5B33' }}
+      gridTemplateColumns={['1fr', '1fr', '1fr 1fr 1fr 1fr']}
+      nHover={{ borderColor: '#FFFFFF33', bg: '#EE2B5B40' }}
     >
-      <LSTsRowMetadata lpCoinType={lpCoinType} />
-      <LSTsRowMetrics position={position} />
+      <Div display={['block', 'block', 'none']} width="100%">
+        <Div display="flex" alignItems="center" gap="0.5rem" mb="0.75rem">
+          <LSTsRowMetadata symbol={symbol} iconUrl={iconUrl} />
+        </Div>
+        <LSTsRowMetricsMobile balance={balance} price={price} value={value} />
+      </Div>
+
+      <Div display={['none', 'none', 'contents']}>
+        <LSTsRowMetadata symbol={symbol} iconUrl={iconUrl} />
+
+        <LSTsRowMetrics balance={balance} price={price} value={value} />
+      </Div>
     </Div>
-  </Link>
-);
+  );
+};
 
 export default LSTsRow;

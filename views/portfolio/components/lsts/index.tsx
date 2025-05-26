@@ -1,14 +1,10 @@
-import { H2 } from '@stylin.js/elements';
-import type { FC } from 'react';
+import { FC } from 'react';
 
 import LSTsTable from './components/lsts-table';
 
 const LSTs: FC = () => {
   return (
     <>
-      <H2 color="#FFFFFF" fontSize="1rem" fontWeight="500">
-        LSTs
-      </H2>
       {/* <Div
         width="100%"
         minHeight="192px"
