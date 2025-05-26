@@ -1,97 +1,47 @@
-import { Span } from '@stylin.js/elements';
+import { Div, P, Span } from '@stylin.js/elements';
 import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { FixedPointMath } from '@/lib/entities/fixed-point-math';
-import { formatDollars, formatMoney } from '@/utils';
-import { usePoolsMetrics } from '@/views/pools/components/pools-stats/pools-stats.hooks';
+import { formatDollars } from '@/utils';
 
-import { CoinsRowMetricsProps } from './coins-row.types';
+import { CoinsRowMetricsProps } from './coins-row-metrics.types';
 
-const CoinsRowMetricsMobile: FC<CoinsRowMetricsProps> = ({ position }) => {
-  const { metrics, isLoading: metricsLoading } = usePoolsMetrics();
+const CoinsRowMetricsMobile: FC<CoinsRowMetricsProps> = ({
+  balance,
+  price,
+  value,
+}) => {
+  const isLoading = !balance || !price || !value;
 
   return (
-    <>
-      {position && (
-        <>
-          <Span>Position</Span>
-          <Span whiteSpace="nowrap" textAlign="right" fontWeight="bold">
-            {metricsLoading ? (
-              <Skeleton width="4rem" />
-            ) : (
-              <Span whiteSpace="nowrap">
-                {position
-                  ? formatMoney(
-                      +FixedPointMath.toNumber(position).toFixed(4),
-                      6,
-                      true
-                    )
-                  : metrics
-                    ? formatDollars(Number(metrics.tvl), 6, true)
-                    : '--'}
-              </Span>
-            )}
-          </Span>
-        </>
-      )}
-      <Span>TVL</Span>
-      <Span whiteSpace="nowrap" textAlign="right" fontWeight="bold">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.tvl), 6, true) : '--'}
-          </Span>
-        )}
-      </Span>
-      <Span>APR</Span>
-      <Span whiteSpace="nowrap" textAlign="right" fontWeight="bold">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? `${Number(metrics.apr ?? 0).toFixed(2)}%` : '--'}
-          </Span>
-        )}
-      </Span>
-      <Span>Volume 1D</Span>
-      <Span whiteSpace="nowrap" textAlign="right" fontWeight="bold">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.volume1D), 6, true) : '--'}
-          </Span>
-        )}
-      </Span>
-      <Span>Volume 7D</Span>
-      <Span whiteSpace="nowrap" textAlign="right" fontWeight="bold">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.volume7D), 6, true) : '--'}
-          </Span>
-        )}
-      </Span>
-      {!position && (
-        <>
-          <Span>Volume 30D</Span>
-          <Span whiteSpace="nowrap" textAlign="right" fontWeight="bold">
-            {metricsLoading ? (
-              <Skeleton width="4rem" />
-            ) : (
-              <Span whiteSpace="nowrap">
-                {metrics
-                  ? formatDollars(Number(metrics.volume30D), 6, true)
-                  : '--'}
-              </Span>
-            )}
-          </Span>
-        </>
-      )}
-    </>
+    <Div display="flex" flexDirection="column" gap="0.5rem">
+      <Div display="flex" justifyContent="space-between" alignItems="center">
+        <P color="#FFFFFF80" fontSize="0.875rem">
+          Balance:
+        </P>
+        <Span color="#FFFFFF" fontSize="0.875rem" fontWeight="500">
+          {isLoading ? <Skeleton width="4rem" /> : balance}
+        </Span>
+      </Div>
+
+      <Div display="flex" justifyContent="space-between" alignItems="center">
+        <P color="#FFFFFF80" fontSize="0.875rem">
+          Price:
+        </P>
+        <Span color="#FFFFFF" fontSize="0.875rem" fontWeight="500">
+          {isLoading ? <Skeleton width="4rem" /> : formatDollars(Number(price))}
+        </Span>
+      </Div>
+
+      <Div display="flex" justifyContent="space-between" alignItems="center">
+        <P color="#FFFFFF80" fontSize="0.875rem">
+          Value:
+        </P>
+        <Span color="#FFFFFF" fontSize="0.875rem" fontWeight="500">
+          {isLoading ? <Skeleton width="4rem" /> : formatDollars(Number(value))}
+        </Span>
+      </Div>
+    </Div>
   );
 };
 

@@ -2,7 +2,7 @@ import { Div, P } from '@stylin.js/elements';
 import { FC } from 'react';
 import unikey from 'unikey';
 
-import LSTsHeader from '../lst-header';
+import LSTsHeader from '../lsts-header';
 import LSTsRow from '../lsts-row';
 import { LSTS } from './lsts.data';
 

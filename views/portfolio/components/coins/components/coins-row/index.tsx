@@ -1,36 +1,45 @@
 import { Div } from '@stylin.js/elements';
-import Link from 'next/link';
 import { FC } from 'react';
-
-import { Routes, RoutesEnum } from '@/constants';
 
 import { CoinsRowProps } from './coins-row.types';
 import CoinsRowMetadata from './coins-row-metadata';
 import CoinsRowMetrics from './coins-row-metrics';
+import CoinsRowMetricsMobile from './coins-row-metrics-mobile';
 
-const CoinsRow: FC<Omit<CoinsRowProps, 'objectId'>> = ({
-  id,
-  position,
-  lpCoinType,
-}) => (
-  <Link href={`${Routes[RoutesEnum.Pools]}/${id}`} shallow>
+const CoinsRow: FC<CoinsRowProps> = ({
+  symbol,
+  iconUrl,
+  balance,
+  price,
+  value,
+}) => {
+  return (
     <Div
-      p="1rem"
-      color="#ffffff"
+      cursor="pointer"
       border="1px solid"
-      fontSize="0.875rem"
       alignItems="center"
       borderColor="#FFFFFF1A"
       borderRadius="0.625rem"
-      display="grid"
-      gridTemplateColumns="1fr 1fr 1fr 1fr"
+      p={['1rem', '1rem', '1rem']}
+      display={['block', 'block', 'grid']}
       transition="background-color 0.2s ease"
-      nHover={{ borderColor: '#EE2B5BD', bg: '#EE2B5B33' }}
+      gridTemplateColumns={['1fr', '1fr', '1fr 1fr 1fr 1fr']}
+      nHover={{ borderColor: '#FFFFFF33', bg: '#EE2B5B40' }}
     >
-      <CoinsRowMetadata lpCoinType={lpCoinType} />
-      <CoinsRowMetrics position={position} />
+      <Div display={['block', 'block', 'none']} width="100%">
+        <Div display="flex" alignItems="center" gap="0.5rem" mb="0.75rem">
+          <CoinsRowMetadata symbol={symbol} iconUrl={iconUrl} />
+        </Div>
+        <CoinsRowMetricsMobile balance={balance} price={price} value={value} />
+      </Div>
+
+      <Div display={['none', 'none', 'contents']}>
+        <CoinsRowMetadata symbol={symbol} iconUrl={iconUrl} />
+
+        <CoinsRowMetrics balance={balance} price={price} value={value} />
+      </Div>
     </Div>
-  </Link>
-);
+  );
+};
 
 export default CoinsRow;

@@ -2,62 +2,28 @@ import { Span } from '@stylin.js/elements';
 import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { FixedPointMath } from '@/lib/entities/fixed-point-math';
-import { formatDollars, formatMoney } from '@/utils';
-import { usePoolsMetrics } from '@/views/pools/components/pools-stats/pools-stats.hooks';
+import { formatDollars } from '@/utils';
 
-import { CoinsRowMetricsProps } from './coins-row.types';
+import { CoinsRowMetricsProps } from './coins-row-metrics.types';
 
-const CoinsRowMetrics: FC<CoinsRowMetricsProps> = ({ position }) => {
-  const { metrics, isLoading: metricsLoading } = usePoolsMetrics();
-
+const CoinsRowMetrics: FC<CoinsRowMetricsProps> = ({
+  balance,
+  price,
+  value,
+}) => {
+  const isLoading = !balance || !price || !value;
   return (
     <>
-      {position && (
-        <Span whiteSpace="nowrap" textAlign="center">
-          {metricsLoading ? (
-            <Skeleton width="4rem" />
-          ) : (
-            <Span whiteSpace="nowrap">
-              {position
-                ? formatMoney(
-                    +FixedPointMath.toNumber(position).toFixed(4),
-                    6,
-                    true
-                  )
-                : metrics
-                  ? formatDollars(Number(metrics.tvl), 6, true)
-                  : '--'}
-            </Span>
-          )}
-        </Span>
-      )}
-      <Span whiteSpace="nowrap" textAlign="center">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.tvl), 6, true) : '--'}
-          </Span>
-        )}
+      <Span color="#FFFFFF" fontSize="0.875rem" textAlign="center">
+        {isLoading ? <Skeleton width="4rem" /> : balance}
       </Span>
-      <Span whiteSpace="nowrap" textAlign="center">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? `${Number(metrics.apr ?? 0).toFixed(2)}%` : '--'}
-          </Span>
-        )}
+
+      <Span color="#FFFFFF" fontSize="0.875rem" textAlign="center">
+        {isLoading ? <Skeleton width="4rem" /> : formatDollars(Number(price))}
       </Span>
-      <Span whiteSpace="nowrap" textAlign="center">
-        {metricsLoading ? (
-          <Skeleton width="4rem" />
-        ) : (
-          <Span whiteSpace="nowrap">
-            {metrics ? formatDollars(Number(metrics.volume1D), 6, true) : '--'}
-          </Span>
-        )}
+
+      <Span color="#FFFFFF" fontSize="0.875rem" textAlign="center">
+        {isLoading ? <Skeleton width="4rem" /> : formatDollars(Number(value))}
       </Span>
     </>
   );

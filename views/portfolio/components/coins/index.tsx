@@ -1,15 +1,11 @@
-import { Div, H2, P } from '@stylin.js/elements';
-import type { FC } from 'react';
+import { FC } from 'react';
 
-import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
+import CoinsTable from './components/coins-table';
 
 const Coins: FC = () => {
   return (
     <>
-      <H2 color="#FFFFFF" fontSize="1rem" fontWeight="500">
-        Coins
-      </H2>
-      <Div
+      {/* <Div
         width="100%"
         minHeight="192px"
         bg="#FFFFFF0D"
@@ -36,7 +32,8 @@ const Coins: FC = () => {
           cursor={'pointer'}
           bg={'#EE2B5B'}
         />
-      </Div>
+      </Div> */}
+      <CoinsTable />
     </>
   );
 };
