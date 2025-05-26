@@ -2,13 +2,13 @@ import { Div, P } from '@stylin.js/elements';
 import { FC } from 'react';
 import unikey from 'unikey';
 
+import LSTNFTsHeader from '../lst-nfts-header';
 import LSTNFTsRow from '../lst-nfts-row';
-import LSTsHeader from '../lsts-header';
 import { LST_NFTS } from './lst-ntfs.data';
 
 const LSTNFTsTable: FC = () => (
   <Div gap="1rem" display="flex" flexDirection="column">
-    <LSTsHeader totalTokens="32" totalValue={381.242324202} />
+    <LSTNFTsHeader totalTokens="32" totalValue={381.242324202} />
     <Div
       bg="#121212"
       display="flex"
