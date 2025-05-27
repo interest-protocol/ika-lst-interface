@@ -1,6 +1,7 @@
 import { Button, Div, P, Span } from '@stylin.js/elements';
 import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import unikey from 'unikey';
 
 import { formatDollars } from '@/utils';
 import { getStatusUIConfig } from '@/utils/status-ui-config';
@@ -47,7 +48,7 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
         return (
           <Div
             display="flex"
-            key={header.key}
+            key={unikey()}
             alignItems="center"
             justifyContent="space-between"
           >
