@@ -9,9 +9,7 @@ import { LSTS_HEADERS } from './lsts-headers';
 const LSTs: FC = () => {
   const currentAccount = useCurrentAccount();
 
-  if (!currentAccount) {
-    return <ConnectWalletNotice title="LSTs" />;
-  }
+  if (!currentAccount) return <ConnectWalletNotice title="LSTs" />;
 
   return (
     <PortfolioTable

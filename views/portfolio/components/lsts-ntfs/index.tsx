@@ -9,9 +9,7 @@ import { LST_NFTS_HEADERS } from './lst-nfts-headers';
 const LSTNFTs: FC = () => {
   const currentAccount = useCurrentAccount();
 
-  if (!currentAccount) {
-    return <ConnectWalletNotice title="LST NFTs" />;
-  }
+  if (!currentAccount) return <ConnectWalletNotice title="LST NFTs" />;
 
   return (
     <PortfolioTable

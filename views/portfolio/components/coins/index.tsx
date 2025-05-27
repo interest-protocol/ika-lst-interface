@@ -9,9 +9,7 @@ import { COINS_HEADERS } from './coins-headers';
 const Coins: FC = () => {
   const currentAccount = useCurrentAccount();
 
-  if (!currentAccount) {
-    return <ConnectWalletNotice title="Coins" />;
-  }
+  if (!currentAccount) return <ConnectWalletNotice title="Coins" />;
 
   return (
     <PortfolioTable

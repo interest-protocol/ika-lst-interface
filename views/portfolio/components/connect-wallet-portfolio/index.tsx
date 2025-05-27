@@ -3,9 +3,9 @@ import { FC } from 'react';
 
 import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
 
-import { ConnectWalletPortfolioProps } from './connect-wallet-portfolio.types';
+import { IConnectWalletPortfolioProps } from './connect-wallet-portfolio.types';
 
-const ConnectWalletNotice: FC<ConnectWalletPortfolioProps> = ({ title }) => (
+const ConnectWalletNotice: FC<IConnectWalletPortfolioProps> = ({ title }) => (
   <Div>
     <P fontSize="1rem" color="#FFFFFF" fontWeight="600" marginBottom="1rem">
       {title}

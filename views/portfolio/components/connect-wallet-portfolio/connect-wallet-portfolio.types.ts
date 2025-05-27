@@ -1,3 +1,3 @@
-export interface ConnectWalletPortfolioProps {
+export interface IConnectWalletPortfolioProps {
   title: string;
 }

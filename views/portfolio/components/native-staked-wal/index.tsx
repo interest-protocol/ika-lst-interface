@@ -9,9 +9,7 @@ import { NATIVE_STAKED_WAL_HEADERS } from './native-staked-wal-headers';
 const NativeStakedWal: FC = () => {
   const currentAccount = useCurrentAccount();
 
-  if (!currentAccount) {
-    return <ConnectWalletNotice title="Native StakedWAL" />;
-  }
+  if (!currentAccount) return <ConnectWalletNotice title="Native StakedWAL" />;
 
   return (
     <PortfolioTable
