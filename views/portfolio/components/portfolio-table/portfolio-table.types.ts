@@ -40,8 +40,11 @@ export interface IPortfolioTableHeaderProps {
   totalValue?: number;
 }
 export interface IPortfolioTableRowProps {
-  data: ILST[] | ILST_NFT[] | INativeStakedWal[];
-  headers: ITableHeader[];
+  data:
+    | ReadonlyArray<ILST>
+    | ReadonlyArray<ILST_NFT>
+    | ReadonlyArray<INativeStakedWal>;
+  headers: ReadonlyArray<ITableHeader>;
   tableType?: 'basic' | 'staked' | 'nft';
   onClick?: () => void;
 }

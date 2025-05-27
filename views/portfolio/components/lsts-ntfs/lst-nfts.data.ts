@@ -1,6 +1,6 @@
 import { ILST_NFT } from '../portfolio-table/portfolio-table.types';
 
-export const LST_NFTS: ILST_NFT[] = [
+export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
   {
     id: 'nft1',
     iconUrl: '/blizzard-nft.png',

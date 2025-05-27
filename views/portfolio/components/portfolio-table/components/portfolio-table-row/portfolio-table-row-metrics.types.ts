@@ -7,7 +7,7 @@ import {
 
 export interface IPortfolioTableRowMetricsProps {
   data: ILST | ILST_NFT | INativeStakedWal;
-  headers: ITableHeader[];
+  headers: ReadonlyArray<ITableHeader>;
   tableType?: 'basic' | 'staked' | 'nft';
   onClick?: () => void;
 }

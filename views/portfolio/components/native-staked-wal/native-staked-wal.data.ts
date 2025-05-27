@@ -1,6 +1,6 @@
 import { INativeStakedWal } from '../portfolio-table/portfolio-table.types';
 
-export const NATIVE_STALKED_WAL: INativeStakedWal[] = [
+export const NATIVE_STALKED_WAL: ReadonlyArray<INativeStakedWal> = [
   {
     id: 'nft1',
     iconUrl: '/blizzard-nft.png',

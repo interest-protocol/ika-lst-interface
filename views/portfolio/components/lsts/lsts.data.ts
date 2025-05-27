@@ -1,6 +1,6 @@
 import { ILST } from '../portfolio-table/portfolio-table.types';
 
-export const LSTS: ILST[] = [
+export const LSTS: ReadonlyArray<ILST> = [
   {
     id: 'wal',
     symbol: 'WAL',

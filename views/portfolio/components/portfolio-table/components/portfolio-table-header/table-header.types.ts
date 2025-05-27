@@ -6,8 +6,11 @@ import {
 } from '../../portfolio-table.types';
 export interface IPortfolioTableProps {
   title: string;
-  headers: ITableHeader[];
-  data: ILST[] | ILST_NFT[] | INativeStakedWal[];
+  headers: ReadonlyArray<ITableHeader>;
+  data:
+    | ReadonlyArray<ILST>
+    | ReadonlyArray<ILST_NFT>
+    | ReadonlyArray<INativeStakedWal>;
   totalTokens?: string | number;
   totalValue?: number;
   tableType?: 'basic' | 'staked' | 'nft';

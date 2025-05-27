@@ -1,6 +1,6 @@
 import { ITableHeader } from '../portfolio-table/portfolio-table.types';
 
-export const NATIVE_STAKED_WAL_HEADERS: ITableHeader[] = [
+export const NATIVE_STAKED_WAL_HEADERS: ReadonlyArray<ITableHeader> = [
   { key: 'symbol', label: 'LST', align: 'left' },
   { key: 'totalStaked', label: 'Total Staked', align: 'center' },
   {
