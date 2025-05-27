@@ -7,7 +7,7 @@ import { IConnectWalletPortfolioProps } from './connect-wallet-portfolio.types';
 
 const ConnectWalletNotice: FC<IConnectWalletPortfolioProps> = ({ title }) => (
   <Div>
-    <P fontSize="1rem" color="#FFFFFF" fontWeight="600" marginBottom="1rem">
+    <P mb="1rem" color="#FFFFFF" fontSize="1rem" fontWeight="600">
       {title}
     </P>
     <Div

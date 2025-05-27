@@ -10,7 +10,7 @@ const EmptyStateMessage: FC = () => (
     justifyContent="center"
     flexDirection="column"
   >
-    <P color="#FFFFFF80" fontSize="1rem" marginBottom="1rem">
+    <P mb="1rem" fontSize="1rem" color="#FFFFFF80">
       You don’t have any records just yet
     </P>
     <Button
