@@ -39,7 +39,7 @@ const WalletProfile: FC = () => {
           py="0.75rem"
           gap="0.5rem"
           display="flex"
-          bg="#EE2B5B1A"
+          bg="#EE2B5B40"
           color="#F1F1F1"
           cursor="pointer"
           alignItems="center"

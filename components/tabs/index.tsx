@@ -12,6 +12,7 @@ const Tabs: FC<TabsProps> = ({ setTab, tab, tabs }) => (
         py="0.5rem"
         px="0.75rem"
         key={unikey()}
+        fontSize="1rem"
         cursor="pointer"
         border="1px solid"
         borderRadius="0.75rem"
