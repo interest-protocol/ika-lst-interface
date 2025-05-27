@@ -14,7 +14,6 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
   totalTokens,
   totalValue,
   tableType = 'basic',
-  onRowClick,
 }) => {
   const hasData = Array.isArray(data) && data.length > 0;
 
@@ -69,7 +68,6 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
                 data={item}
                 headers={headers}
                 tableType={tableType}
-                onClick={() => onRowClick?.(item)}
               />
             ))
           )}
