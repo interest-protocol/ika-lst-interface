@@ -1,6 +1,6 @@
-import { TableHeader } from '../portfolio-table/portfolio-table.types';
+import { ITableHeader } from '../portfolio-table/portfolio-table.types';
 
-export const LST_NFTS_HEADERS: TableHeader[] = [
+export const LST_NFTS_HEADERS: ITableHeader[] = [
   { key: 'token', label: 'LST', align: 'left' },
   { key: 'totalStaked', label: 'Total Staked', align: 'center' },
   {
@@ -9,6 +9,4 @@ export const LST_NFTS_HEADERS: TableHeader[] = [
     align: 'center',
     format: 'currency',
   },
-  { key: 'status', align: 'center', type: 'status' },
-  { key: 'action', align: 'center', type: 'button' },
 ];

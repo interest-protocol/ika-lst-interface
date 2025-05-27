@@ -1,6 +1,6 @@
-import { TableHeader } from '../portfolio-table/portfolio-table.types';
+import { ITableHeader } from '../portfolio-table/portfolio-table.types';
 
-export const LSTS_HEADERS: TableHeader[] = [
+export const LSTS_HEADERS: ITableHeader[] = [
   { key: 'symbol', label: 'Coins', align: 'left' },
   { key: 'balance', label: 'Balance', align: 'center' },
   { key: 'price', label: 'Price', align: 'center', format: 'currency' },
