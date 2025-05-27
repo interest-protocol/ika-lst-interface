@@ -1,9 +1,7 @@
 import { Div, Span } from '@stylin.js/elements';
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
-import { StatBoxProps } from './stat-box.types';
-
-const StatBox: FC<StatBoxProps> = ({ children }) => (
+const StatBox: FC<PropsWithChildren> = ({ children }) => (
   <Div
     borderRadius="8px"
     px={['0.5rem', '0.75rem']}
