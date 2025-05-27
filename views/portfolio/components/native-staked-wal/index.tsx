@@ -1,43 +1,27 @@
-import { Div, H2, P } from '@stylin.js/elements';
-import type { FC } from 'react';
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import { FC } from 'react';
 
-import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
+import ConnectWalletNotice from '../connect-wallet-portfolio';
+import PortfolioTable from '../portfolio-table';
+import { NATIVE_STALKED_WAL } from './native-staked-wal.data';
+import { NATIVE_STAKED_WAL_HEADERS } from './native-staked-wal-headers';
 
 const NativeStakedWal: FC = () => {
+  const currentAccount = useCurrentAccount();
+
+  if (!currentAccount) {
+    return <ConnectWalletNotice title="Native StakedWAL" />;
+  }
+
   return (
-    <>
-      <H2 color="#FFFFFF" fontSize="1rem" fontWeight="500">
-        Native StakedWal
-      </H2>
-      <Div
-        width="100%"
-        minHeight="192px"
-        bg="#FFFFFF0D"
-        border="1px solid #FFFFFF1A"
-        borderRadius="6px"
-        display="flex"
-        flexDirection="column"
-        gap="0.75rem"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <P color="#FFFFFF" fontFamily="JetBrains Mono">
-          Connect Wallet to Unlock Details
-        </P>
-        <WalletGuardButton
-          all="unset"
-          py="1rem"
-          px="1.5rem"
-          color="#FFFFFF"
-          fontWeight="500"
-          textAlign="center"
-          position="relative"
-          borderRadius="0.625rem"
-          cursor={'pointer'}
-          bg={'#EE2B5B'}
-        />
-      </Div>
-    </>
+    <PortfolioTable
+      totalTokens="30"
+      tableType="staked"
+      title="Native StakedWAL"
+      data={NATIVE_STALKED_WAL}
+      totalValue={381.242324202}
+      headers={NATIVE_STAKED_WAL_HEADERS}
+    />
   );
 };
 
