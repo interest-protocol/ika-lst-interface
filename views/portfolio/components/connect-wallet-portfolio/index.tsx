@@ -15,7 +15,7 @@ const ConnectWalletNotice: FC<IConnectWalletPortfolioProps> = ({ title }) => (
       gap="0.75rem"
       bg="#FFFFFF0D"
       display="flex"
-      minHeight="192px"
+      minHeight="12rem"
       borderRadius="6px"
       alignItems="center"
       flexDirection="column"
