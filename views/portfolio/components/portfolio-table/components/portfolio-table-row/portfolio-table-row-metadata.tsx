@@ -11,7 +11,13 @@ const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
 }) => {
   const isLoading = !data.iconUrl;
   const isNFT = tableType === 'nft';
-  const borderRadius = isNFT ? '4px' : '50%';
+  const getBorderRadius = () => {
+    if (tableType === 'nft') return '4px';
+    if (tableType === 'staked') return '2px';
+    return '50%';
+  };
+
+  const borderRadius = getBorderRadius();
 
   const hasToken = (
     data: ILST | ILST_NFT | INativeStakedWal
