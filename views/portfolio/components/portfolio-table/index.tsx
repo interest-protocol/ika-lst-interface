@@ -50,7 +50,8 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
               <P
                 key={unikey()}
                 color="#FFFFFF80"
-                fontSize="0.875rem"
+                fontSize="1rem"
+                fontWeight="400"
                 fontFamily="JetBrains Mono"
                 textAlign={header.align || 'left'}
               >

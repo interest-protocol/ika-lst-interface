@@ -31,7 +31,7 @@ export const NATIVE_STALKED_WAL: ReadonlyArray<INativeStakedWal> = [
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,
-    status: 'Read to Withdraw',
+    status: 'Ready to Withdraw',
   },
   {
     id: 'nft5',

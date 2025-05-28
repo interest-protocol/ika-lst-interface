@@ -2,11 +2,11 @@ export const getStatusUIConfig = (status: string) => {
   const baseButtonStyle = {
     py: '0.8rem',
     border: 'none',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '500',
     borderRadius: '0.5rem',
     display: 'inline-block',
-    width: ['100%', 'auto'],
+    width: ['100%', '6.815rem'],
     marginTop: ['0.4rem', '0'],
     px: ['1.5rem', '1.25rem', '1rem'],
   };

@@ -35,7 +35,7 @@ export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,
-    status: 'Read to Withdraw',
+    status: 'Ready to Withdraw',
   },
   {
     id: 'nft5',

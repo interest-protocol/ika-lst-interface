@@ -40,8 +40,9 @@ const PortfolioTableRowMetrics: FC<IPortfolioTableRowMetricsProps> = ({
           <Span
             key={unikey()}
             color="#FFFFFF"
+            fontSize="1rem"
+            fontWeight="400"
             textAlign="center"
-            fontSize="0.875rem"
           >
             {isLoading ? (
               <Skeleton width="4rem" />
@@ -56,16 +57,20 @@ const PortfolioTableRowMetrics: FC<IPortfolioTableRowMetricsProps> = ({
 
       {isStatus && (
         <>
-          <Span
-            key={unikey()}
-            textAlign="center"
-            borderRadius="16px"
-            fontSize="0.875rem"
-            padding="0.5rem 0.6rem"
-            {...statusStyle}
-          >
-            {data.status}
-          </Span>
+          <Div display="flex" alignItems="center" justifyContent="center">
+            <Span
+              key={unikey()}
+              fontSize="1rem"
+              fontWeight="400"
+              textAlign="center"
+              borderRadius="1rem"
+              whiteSpace="nowrap"
+              padding="0.5rem 0.6rem"
+              {...statusStyle}
+            >
+              {data.status}
+            </Span>
+          </Div>
 
           <Div key={unikey()} display="flex" justifyContent="center">
             <Button {...buttonStyle}>{buttonStyle.text}</Button>

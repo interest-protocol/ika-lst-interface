@@ -65,6 +65,7 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
             >
               <Span
                 key={unikey()}
+                fontWeight="400"
                 textAlign="center"
                 borderRadius="16px"
                 fontSize="0.875rem"
