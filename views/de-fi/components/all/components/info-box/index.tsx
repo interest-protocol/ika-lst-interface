@@ -54,7 +54,7 @@ const InfoBox: FC<IInfoBox> = ({ label, value, iconImages }) => {
           <P
             color="#FFFFFF"
             fontWeight="500"
-            fontSize="0.75rem"
+            fontSize={['0.75rem', '1rem']}
             fontFamily="JetBrains Mono"
           >
             {displayValue}
@@ -64,13 +64,13 @@ const InfoBox: FC<IInfoBox> = ({ label, value, iconImages }) => {
         <P
           color="#FFFFFF"
           fontWeight="500"
-          fontSize="0.75rem"
+          fontSize={['0.75rem', '1rem']}
           fontFamily="JetBrains Mono"
         >
           {displayValue}
         </P>
       )}
-      <P color="#FFFFFF80" fontSize="0.75rem">
+      <P fontWeight="500" color="#FFFFFF80" fontSize={['0.75rem', '1rem']}>
         {label}
       </P>
     </Div>
