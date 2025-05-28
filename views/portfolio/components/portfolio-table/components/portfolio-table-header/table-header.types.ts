@@ -8,11 +8,7 @@ import {
 export interface IPortfolioTableProps {
   title: string;
   headers: ReadonlyArray<ITableHeader>;
-  data:
-    | ReadonlyArray<ILST>
-    | ReadonlyArray<ILST_NFT>
-    | ReadonlyArray<INativeStakedWal>
-    | ReadonlyArray<ICoin>;
+  data: ReadonlyArray<ILST | ILST_NFT | INativeStakedWal | ICoin>;
   totalTokens?: string | number;
   totalValue?: number;
   tableType?: 'basic' | 'staked' | 'nft';
