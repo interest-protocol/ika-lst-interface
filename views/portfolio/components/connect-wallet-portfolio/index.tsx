@@ -5,7 +5,9 @@ import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
 
 import { IConnectWalletPortfolioProps } from './connect-wallet-portfolio.types';
 
-const ConnectWalletNotice: FC<IConnectWalletPortfolioProps> = ({ title }) => (
+const ConnectWalletPortfolio: FC<IConnectWalletPortfolioProps> = ({
+  title,
+}) => (
   <Div>
     <P mb="1rem" color="#FFFFFF" fontSize="1rem" fontWeight="600">
       {title}
@@ -26,19 +28,21 @@ const ConnectWalletNotice: FC<IConnectWalletPortfolioProps> = ({ title }) => (
         Connect Wallet to Unlock Details
       </P>
       <WalletGuardButton
-        py="1rem"
-        px="1.5rem"
         all="unset"
         bg="#EE2B5B"
-        color="#FFFFFF"
-        cursor="pointer"
+        py="0.75rem"
+        gap="0.5rem"
+        display="flex"
+        color="#F1F1F1"
+        fontSize="1rem"
         fontWeight="500"
-        textAlign="center"
-        position="relative"
-        borderRadius="0.625rem"
+        cursor="pointer"
+        alignItems="center"
+        borderRadius="0.75rem"
+        px={['0.75rem', '1rem']}
       />
     </Div>
   </Div>
 );
 
-export default ConnectWalletNotice;
+export default ConnectWalletPortfolio;

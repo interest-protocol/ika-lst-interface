@@ -1,7 +1,7 @@
 import { useCurrentAccount } from '@mysten/dapp-kit';
 import { FC } from 'react';
 
-import ConnectWalletNotice from '../connect-wallet-portfolio';
+import ConnectWalletPortolio from '../connect-wallet-portfolio';
 import PortfolioTable from '../portfolio-table';
 import { NATIVE_STALKED_WAL } from './native-staked-wal.data';
 import { NATIVE_STAKED_WAL_HEADERS } from './native-staked-wal-headers';
@@ -9,7 +9,8 @@ import { NATIVE_STAKED_WAL_HEADERS } from './native-staked-wal-headers';
 const NativeStakedWal: FC = () => {
   const currentAccount = useCurrentAccount();
 
-  if (!currentAccount) return <ConnectWalletNotice title="Native StakedWAL" />;
+  if (!currentAccount)
+    return <ConnectWalletPortolio title="Native StakedWAL" />;
 
   return (
     <PortfolioTable

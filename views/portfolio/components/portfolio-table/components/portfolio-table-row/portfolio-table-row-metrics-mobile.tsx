@@ -15,6 +15,9 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
   tableType,
 }) => {
   const isStatus = 'status' in data;
+  const { statusStyle, buttonStyle } = isStatus
+    ? getStatusUIConfig(data.status as string)
+    : { statusStyle: {}, buttonStyle: {} };
   const filteredHeaders = headers.filter(
     (header) => !['icon', 'symbol', 'token', 'status'].includes(header.key)
   );
@@ -61,37 +64,19 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
               justifyContent="space-between"
             >
               <Span
+                key={unikey()}
+                textAlign="center"
                 borderRadius="16px"
                 fontSize="0.875rem"
                 padding="0.5rem 0.6rem"
-                color={getStatusUIConfig(data.status).color}
-                backgroundColor={getStatusUIConfig(data.status).bg}
+                {...statusStyle}
               >
-                {data.status == null ? <Skeleton width="4rem" /> : data.status}
+                {data.status}
               </Span>
             </Div>
 
             <Div display="flex" justifyContent="flex-end">
-              <Button
-                py="0.5rem"
-                px="1rem"
-                width="100%"
-                border="none"
-                fontWeight="500"
-                fontSize="0.875rem"
-                borderRadius="0.5rem"
-                disabled={getStatusUIConfig(data.status).disabled}
-                color={getStatusUIConfig(data.status).buttonColor}
-                backgroundColor={getStatusUIConfig(data.status).buttonBg}
-                opacity={getStatusUIConfig(data.status).disabled ? 0.6 : 1}
-                cursor={
-                  getStatusUIConfig(data.status).disabled
-                    ? 'not-allowed'
-                    : 'pointer'
-                }
-              >
-                {getStatusUIConfig(data.status).text}
-              </Button>
+              <Button {...buttonStyle}>{buttonStyle.text}</Button>
             </Div>
           </>
         )}

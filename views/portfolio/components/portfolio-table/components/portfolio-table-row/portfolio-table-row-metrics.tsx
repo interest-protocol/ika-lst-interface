@@ -15,6 +15,9 @@ const PortfolioTableRowMetrics: FC<IPortfolioTableRowMetricsProps> = ({
   tableType,
 }) => {
   const isStatus = 'status' in data;
+  const { statusStyle, buttonStyle } = isStatus
+    ? getStatusUIConfig(data.status as string)
+    : { statusStyle: {}, buttonStyle: {} };
 
   return (
     <Div display={['none', 'none', 'contents']}>
@@ -59,35 +62,13 @@ const PortfolioTableRowMetrics: FC<IPortfolioTableRowMetricsProps> = ({
             borderRadius="16px"
             fontSize="0.875rem"
             padding="0.5rem 0.6rem"
-            color={getStatusUIConfig(data.status).color}
-            backgroundColor={getStatusUIConfig(data.status).bg}
+            {...statusStyle}
           >
             {data.status}
           </Span>
 
           <Div key={unikey()} display="flex" justifyContent="center">
-            <Button
-              py="0.8rem"
-              border="none"
-              fontSize="16px"
-              fontWeight="500"
-              borderRadius="0.5rem"
-              display="inline-block"
-              width={['100%', 'auto']}
-              marginTop={['0.4rem', '0']}
-              color={getStatusUIConfig(data.status).buttonColor}
-              disabled={getStatusUIConfig(data.status).disabled}
-              px={['1.5rem', '1.25rem', '1rem']}
-              backgroundColor={getStatusUIConfig(data.status).buttonBg}
-              opacity={getStatusUIConfig(data.status).disabled ? 0.6 : 1}
-              cursor={
-                getStatusUIConfig(data.status).disabled
-                  ? 'not-allowed'
-                  : 'pointer'
-              }
-            >
-              {getStatusUIConfig(data.status).text}
-            </Button>
+            <Button {...buttonStyle}>{buttonStyle.text}</Button>
           </Div>
         </>
       )}

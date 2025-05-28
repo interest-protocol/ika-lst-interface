@@ -1,62 +1,118 @@
 export const getStatusUIConfig = (status: string) => {
+  const baseButtonStyle = {
+    py: '0.8rem',
+    border: 'none',
+    fontSize: '16px',
+    fontWeight: '500',
+    borderRadius: '0.5rem',
+    display: 'inline-block',
+    width: ['100%', 'auto'],
+    marginTop: ['0.4rem', '0'],
+    px: ['1.5rem', '1.25rem', '1rem'],
+  };
+
   const isTimeFormat = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(status);
 
   if (isTimeFormat) {
     return {
-      bg: '#FFFFFF14',
-      color: '#FFFFFF',
-      buttonBg: '#1CDBDA80',
-      buttonColor: '#000000',
-      disabled: true,
-      text: 'Get LST',
+      statusStyle: {
+        bg: '#FFFFFF14',
+        color: '#FFFFFF',
+      },
+      buttonStyle: {
+        ...baseButtonStyle,
+        bg: '#1CDBDA80',
+        color: '#000000',
+        disabled: true,
+        text: 'Get LST',
+        opacity: 0.6,
+        cursor: 'not-allowed',
+      },
     };
   }
 
-  switch (status) {
-    case 'Withdrawing':
-      return {
+  const statusConfigs = {
+    Withdrawing: {
+      statusStyle: {
         bg: '#83F34E14',
         color: '#83F34E',
-        buttonBg: '#EE2B5B80',
-        buttonColor: '#000000',
+      },
+      button: {
+        bg: '#EE2B5B80',
+        color: '#000000',
         disabled: true,
         text: 'Withdraw',
-      };
-    case 'Ready to Get':
-      return {
+        opacity: 0.6,
+        cursor: 'not-allowed',
+      },
+    },
+    'Ready to Get': {
+      statusStyle: {
         bg: '#C484F614',
         color: '#C484F6',
-        buttonBg: '#1CDBDA',
-        buttonColor: '#000000',
+      },
+      button: {
+        bg: '#1CDBDA',
+        color: '#000000',
         disabled: false,
         text: 'Get LST',
-      };
-    case 'Read to Withdraw':
-      return {
+        opacity: 1,
+        cursor: 'pointer',
+      },
+    },
+    'Ready to Withdraw': {
+      statusStyle: {
         bg: '#F5B72214',
         color: '#F5B722',
-        buttonBg: '#EE2B5B',
-        buttonColor: '#FFFFFF',
+      },
+      button: {
+        bg: '#EE2B5B',
+        color: '#FFFFFF',
         disabled: false,
         text: 'Withdraw',
-      };
-    case 'Staked':
-      return {
+        opacity: 1,
+        cursor: 'pointer',
+      },
+    },
+    Staked: {
+      statusStyle: {
         bg: '#FFFFFF14',
         color: '#FFFFFF',
-        buttonBg: '#EE2B5B',
-        buttonColor: '#FFFFFF',
+      },
+      button: {
+        bg: '#EE2B5B',
+        color: '#FFFFFF',
         disabled: false,
         text: 'Withdraw',
-      };
-    default:
-      return {
-        bg: '#FFFFFF14',
-        color: '#FFFFFF',
-        buttonBg: '#1CDBDA80',
-        buttonColor: '#000000',
-        disabled: true,
-        text: 'N/A',
-      };
-  }
+        opacity: 1,
+        cursor: 'pointer',
+      },
+    },
+  };
+
+  const defaultConfig = {
+    statusStyle: {
+      bg: '#FFFFFF14',
+      color: '#FFFFFF',
+    },
+    button: {
+      bg: '#1CDBDA80',
+      color: '#000000',
+      disabled: true,
+      text: 'N/A',
+      opacity: 0.6,
+      cursor: 'not-allowed',
+    },
+  };
+
+  const config =
+    statusConfigs[status as keyof typeof statusConfigs] || defaultConfig;
+
+  return {
+    statusStyle: config.statusStyle,
+    buttonStyle: {
+      ...baseButtonStyle,
+      ...config.button,
+    },
+  };
 };
