@@ -1,6 +1,6 @@
-import { ILST } from '../portfolio-table/portfolio-table.types';
+import { ICoin } from '../portfolio-table/portfolio-table.types';
 
-export const COINS: ReadonlyArray<ILST> = [
+export const COINS: ReadonlyArray<ICoin> = [
   {
     id: 'wal',
     symbol: 'WAL',
