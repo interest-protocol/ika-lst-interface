@@ -13,101 +13,34 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
   data,
   headers,
   tableType,
-}) => (
-  <Div width="100%" display={['block', 'block', 'none']}>
-    <Div mb="0.75rem" gap="0.5rem" display="flex" alignItems="center">
-      {!data.iconUrl ? (
-        <Skeleton
-          height="2.5rem"
-          width="100%"
-          borderRadius="0.5rem"
-          style={{ flex: 1 }}
-        />
-      ) : (
+}) => {
+  const isStatus = 'status' in data;
+  const filteredHeaders = headers.filter(
+    (header) => !['icon', 'symbol', 'token', 'status'].includes(header.key)
+  );
+
+  return (
+    <Div width="100%" display={['block', 'block', 'none']}>
+      <Div mb="0.75rem" gap="0.5rem" display="flex" alignItems="center">
         <PortfolioTableRowMetadata data={data} tableType={tableType} />
-      )}
-    </Div>
+      </Div>
 
-    <Div gap="0.5rem" display="flex" flexDirection="column">
-      {headers.map((header) => {
-        if (
-          header.key === 'icon' ||
-          header.key === 'symbol' ||
-          header.key === 'token'
-        ) {
-          return null;
-        }
+      <Div gap="0.5rem" display="flex" flexDirection="column">
+        {filteredHeaders.map((header) => {
+          const value = data[header.key as keyof typeof data];
+          const isLoading = value == null;
 
-        const value = data[header.key as keyof typeof data];
-        const isLoading =
-          typeof value === 'string'
-            ? value.trim() === ''
-            : value === undefined || value === null;
-        const isStatus = header.key === 'status';
-
-        return (
-          <Div
-            display="flex"
-            key={unikey()}
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            {header.label?.toLowerCase() !== 'status' && (
+          return (
+            <Div
+              key={unikey()}
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+            >
               <P color="#FFFFFF80" fontSize="0.875rem">
                 {header.label}:
               </P>
-            )}
-            {isStatus ? (
-              <Div
-                width={['100%', 'auto']}
-                display="flex"
-                flexDirection="column"
-                alignItems="flex-end"
-              >
-                <Span
-                  textAlign="center"
-                  borderRadius="16px"
-                  fontSize="0.875rem"
-                  padding="0.5rem 0.6rem"
-                  color={getStatusUIConfig(value).color}
-                  backgroundColor={getStatusUIConfig(value).bg}
-                >
-                  {isLoading ? <Skeleton width="4rem" /> : value}
-                </Span>
-                {isLoading ? (
-                  <Skeleton width="4rem" />
-                ) : (
-                  <Button
-                    py="0.8rem"
-                    border="none"
-                    fontSize="16px"
-                    fontWeight="500"
-                    borderRadius="0.5rem"
-                    display="inline-block"
-                    width={['100%', 'auto']}
-                    marginTop={['0.4rem', '0']}
-                    color={getStatusUIConfig(value).buttonColor}
-                    disabled={getStatusUIConfig(value).disabled}
-                    px={['1.5rem', '1.25rem', '1rem']}
-                    backgroundColor={getStatusUIConfig(value).buttonBg}
-                    opacity={getStatusUIConfig(value).disabled ? 0.6 : 1}
-                    cursor={
-                      getStatusUIConfig(value).disabled
-                        ? 'not-allowed'
-                        : 'pointer'
-                    }
-                  >
-                    {getStatusUIConfig(value).text}
-                  </Button>
-                )}
-              </Div>
-            ) : (
-              <Span
-                color="#FFFFFF"
-                fontWeight="500"
-                fontSize="0.875rem"
-                textAlign="right"
-              >
+              <Span color="#FFFFFF" fontWeight="500" fontSize="0.875rem">
                 {isLoading ? (
                   <Skeleton width="4rem" />
                 ) : header.format === 'currency' ? (
@@ -116,12 +49,55 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
                   value
                 )}
               </Span>
-            )}
-          </Div>
-        );
-      })}
+            </Div>
+          );
+        })}
+
+        {isStatus && (
+          <>
+            <Div
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Span
+                borderRadius="16px"
+                fontSize="0.875rem"
+                padding="0.5rem 0.6rem"
+                color={getStatusUIConfig(data.status).color}
+                backgroundColor={getStatusUIConfig(data.status).bg}
+              >
+                {data.status == null ? <Skeleton width="4rem" /> : data.status}
+              </Span>
+            </Div>
+
+            <Div display="flex" justifyContent="flex-end">
+              <Button
+                py="0.5rem"
+                px="1rem"
+                width="100%"
+                border="none"
+                fontWeight="500"
+                fontSize="0.875rem"
+                borderRadius="0.5rem"
+                disabled={getStatusUIConfig(data.status).disabled}
+                color={getStatusUIConfig(data.status).buttonColor}
+                backgroundColor={getStatusUIConfig(data.status).buttonBg}
+                opacity={getStatusUIConfig(data.status).disabled ? 0.6 : 1}
+                cursor={
+                  getStatusUIConfig(data.status).disabled
+                    ? 'not-allowed'
+                    : 'pointer'
+                }
+              >
+                {getStatusUIConfig(data.status).text}
+              </Button>
+            </Div>
+          </>
+        )}
+      </Div>
     </Div>
-  </Div>
-);
+  );
+};
 
 export default PortfolioTableRowMetricsMobile;

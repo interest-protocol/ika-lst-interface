@@ -11,6 +11,10 @@ const PortfolioTableRow: FC<IPortfolioTableRowProps> = ({
   tableType,
   onClick,
 }) => {
+  const hasStatus = 'status' in data;
+
+  const columns = hasStatus ? headers.length + 2 : headers.length;
+
   return (
     <Div
       cursor="pointer"
@@ -23,7 +27,7 @@ const PortfolioTableRow: FC<IPortfolioTableRowProps> = ({
       display={['block', 'block', 'grid']}
       transition="background-color 0.2s ease"
       nHover={{ borderColor: '#FFFFFF33', bg: '#EE2B5B40' }}
-      gridTemplateColumns={['1fr', '1fr', `repeat(${headers.length}, 1fr)`]}
+      gridTemplateColumns={['1fr', '1fr', `repeat(${columns}, 1fr)`]}
     >
       <PortfolioTableRowMetricsMobile
         data={data}

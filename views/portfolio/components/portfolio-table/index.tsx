@@ -6,7 +6,6 @@ import EmptyStateMessage from './components/portfolio-table-empty-state-message'
 import PortfolioTableHeader from './components/portfolio-table-header';
 import { IPortfolioTableProps } from './components/portfolio-table-header/table-header.types';
 import PortfolioTableRow from './components/portfolio-table-row';
-
 const PortfolioTable: FC<IPortfolioTableProps> = ({
   title,
   headers,
@@ -16,6 +15,7 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
   tableType = 'basic',
 }) => {
   const hasData = Array.isArray(data) && data.length > 0;
+  const hasStatus = hasData && 'status' in data[0];
 
   return (
     <Div gap="1rem" display="flex" flexDirection="column">
@@ -42,11 +42,13 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
             px="1rem"
             pb="0.5rem"
             display={['none', 'none', 'grid']}
-            gridTemplateColumns={`repeat(${headers.length}, 1fr)`}
+            gridTemplateColumns={`repeat(${
+              headers.length + (hasStatus ? 2 : 0)
+            }, 1fr)`}
           >
             {headers.map((header) => (
               <P
-                key={header.key}
+                key={unikey()}
                 color="#FFFFFF80"
                 fontSize="0.875rem"
                 fontFamily="JetBrains Mono"
@@ -55,6 +57,13 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
                 {header.label}
               </P>
             ))}
+
+            {hasStatus && (
+              <>
+                <Div />
+                <Div />
+              </>
+            )}
           </Div>
         )}
 
