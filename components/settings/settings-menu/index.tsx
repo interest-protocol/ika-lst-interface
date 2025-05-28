@@ -36,30 +36,34 @@ const SettingsMenu: FC = () => {
     >
       <Motion py="0.5rem" borderRadius="0.75rem" width="20rem">
         <Nav display={['block', 'block', 'block', 'none']}>
-          {[RoutesEnum.Stake, RoutesEnum.Pools, RoutesEnum.Stats].map(
-            (route) => (
-              <Link href={Routes[route]} key={route}>
-                <Div
-                  px="1rem"
-                  py="0.5rem"
-                  display="flex"
-                  cursor="pointer"
-                  alignItems="center"
-                  textTransform="capitalize"
-                  color={
-                    (route === RoutesEnum.Stake &&
-                      pathname === Routes[RoutesEnum.Stake]) ||
-                    (route !== RoutesEnum.Stake &&
-                      pathname.includes(Routes[route]))
-                      ? '#EE2B5B'
-                      : '#FFFFFF80'
-                  }
-                >
-                  {route}
-                </Div>
-              </Link>
-            )
-          )}
+          {[
+            RoutesEnum.Stake,
+            RoutesEnum.Pools,
+            RoutesEnum.Stats,
+            RoutesEnum.Portfolio,
+            RoutesEnum.DeFi,
+          ].map((route) => (
+            <Link href={Routes[route]} key={route}>
+              <Div
+                px="1rem"
+                py="0.5rem"
+                display="flex"
+                cursor="pointer"
+                alignItems="center"
+                textTransform="capitalize"
+                color={
+                  (route === RoutesEnum.Stake &&
+                    pathname === Routes[RoutesEnum.Stake]) ||
+                  (route !== RoutesEnum.Stake &&
+                    pathname.includes(Routes[route]))
+                    ? '#EE2B5B'
+                    : '#FFFFFF80'
+                }
+              >
+                {route}
+              </Div>
+            </Link>
+          ))}
           <Hr border="none" borderBottom="1px solid #242424" mx="1rem" />
         </Nav>
         <SettingsMenuValidator />

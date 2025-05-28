@@ -58,7 +58,16 @@ const Navbar: FC = () => {
           alignItems="center"
           nHover={{ color: '#EE2B5B' }}
         >
-          <Span>DeFi</Span>
+          <Span
+            nHover={{ color: '#EE2B5B' }}
+            color={
+              pathname.includes(Routes[RoutesEnum.Portfolio])
+                ? '#EE2B5B'
+                : '#FFFFFF80'
+            }
+          >
+            DeFi
+          </Span>
         </Div>
       </Link>
       <Link href="https://interest-protocol.gitbook.io/winter-walrus">
