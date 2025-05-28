@@ -2,12 +2,7 @@ import { Div, Img, Span } from '@stylin.js/elements';
 import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import {
-  ICoin,
-  ILST,
-  ILST_NFT,
-  INativeStakedWal,
-} from '../../portfolio-table.types';
+import { ILST, ILST_NFT, INativeStakedWal } from '../../portfolio-table.types';
 import { IPortfolioTableRowMetadataProps } from './portfolio-table-row-metadata.types';
 
 const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
@@ -25,9 +20,9 @@ const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
   const borderRadius = getBorderRadius();
 
   const hasToken = (
-    data: ILST | ILST_NFT | INativeStakedWal | ICoin
+    data: ILST | ILST_NFT | INativeStakedWal
   ): data is ILST_NFT => {
-    return (data as ILST_NFT).token !== undefined;
+    return 'token' in data && data.token !== undefined;
   };
 
   return (
