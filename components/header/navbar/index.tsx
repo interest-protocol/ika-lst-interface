@@ -61,7 +61,7 @@ const Navbar: FC = () => {
           <Span
             nHover={{ color: '#EE2B5B' }}
             color={
-              pathname.includes(Routes[RoutesEnum.Portfolio])
+              pathname.includes(Routes[RoutesEnum.DeFi])
                 ? '#EE2B5B'
                 : '#FFFFFF80'
             }
