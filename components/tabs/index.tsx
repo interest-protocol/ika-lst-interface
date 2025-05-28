@@ -5,7 +5,7 @@ import unikey from 'unikey';
 import { TabsProps } from './tabs.types';
 
 const Tabs: FC<TabsProps> = ({ setTab, tab, tabs }) => (
-  <Div display="flex" gap="0.5rem">
+  <Div display="flex" py="0.5rem" gap="0.5rem" flexWrap="wrap">
     {tabs.map((text, index) => (
       <Button
         all="unset"
