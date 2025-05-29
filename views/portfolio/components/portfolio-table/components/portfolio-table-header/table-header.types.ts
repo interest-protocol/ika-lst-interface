@@ -1,5 +1,4 @@
 import {
-  ICoin,
   ILST,
   ILST_NFT,
   INativeStakedWal,
@@ -8,7 +7,7 @@ import {
 export interface IPortfolioTableProps {
   title: string;
   headers: ReadonlyArray<ITableHeader>;
-  data: ReadonlyArray<ILST | ILST_NFT | INativeStakedWal | ICoin>;
+  data: ReadonlyArray<ILST | ILST_NFT | INativeStakedWal>;
   totalTokens?: string | number;
   totalValue?: number;
   tableType?: 'basic' | 'staked' | 'nft';

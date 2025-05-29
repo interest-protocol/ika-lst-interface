@@ -1,11 +1,6 @@
-import {
-  ICoin,
-  ILST,
-  ILST_NFT,
-  INativeStakedWal,
-} from '../../portfolio-table.types';
+import { ILST, ILST_NFT, INativeStakedWal } from '../../portfolio-table.types';
 
 export interface IPortfolioTableRowMetadataProps {
-  data: ILST | ILST_NFT | INativeStakedWal | ICoin;
+  data: ILST | ILST_NFT | INativeStakedWal;
   tableType?: 'basic' | 'staked' | 'nft';
 }

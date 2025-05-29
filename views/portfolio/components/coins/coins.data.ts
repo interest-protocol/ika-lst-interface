@@ -1,4 +1,4 @@
-import { ICoin } from '../portfolio-table/portfolio-table.types';
+import { ILST as ICoin } from '../portfolio-table/portfolio-table.types';
 
 export const COINS: ReadonlyArray<ICoin> = [
   {

@@ -4,26 +4,21 @@ export interface IAsset {
   iconUrl: string;
 }
 
-export interface IBalanceAsset extends IAsset {
+export interface ILST extends IAsset {
   balance: string;
   price: number;
   value: number;
 }
 
-export interface IStakedAsset extends IAsset {
+export interface INativeStakedWal extends IAsset {
   totalStaked: string;
   toWithdraw: number;
   status: string;
 }
 
-export interface ILST extends IBalanceAsset {}
-export interface ICoin extends IBalanceAsset {}
-
-export interface ILST_NFT extends IStakedAsset {
+export interface ILST_NFT extends INativeStakedWal {
   token: string;
 }
-
-export interface INativeStakedWal extends IStakedAsset {}
 
 export interface ITableHeader {
   key: string;
@@ -39,7 +34,7 @@ export interface IPortfolioTableHeaderProps {
   totalValue?: number;
 }
 export interface IPortfolioTableRowProps {
-  data: ReadonlyArray<ILST | ILST_NFT | INativeStakedWal | ICoin>;
+  data: ReadonlyArray<ILST | ILST_NFT | INativeStakedWal>;
 
   headers: ReadonlyArray<ITableHeader>;
   tableType?: 'basic' | 'staked' | 'nft';
