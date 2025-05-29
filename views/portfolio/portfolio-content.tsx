@@ -4,7 +4,6 @@ import unikey from 'unikey';
 
 import { useTabState } from '@/hooks/use-tab-manager';
 
-import { Epoch } from '../stake/components';
 import Coins from './components/coins';
 import LSTs from './components/lsts';
 import LSTNFTs from './components/lsts-ntfs';
@@ -35,7 +34,6 @@ const PortfolioContent: FC = () => {
           <Coins key={unikey()} />,
         ][tab]
       }
-      <Epoch />
     </Div>
   );
 };
