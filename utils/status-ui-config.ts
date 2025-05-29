@@ -6,7 +6,7 @@ export const getStatusUIConfig = (status: string) => {
     fontWeight: '500',
     borderRadius: '0.5rem',
     display: 'inline-block',
-    width: ['100%', '6.815rem'],
+    width: ['100%', '100%', '6.815rem'],
     marginTop: ['0.4rem', '0'],
     px: ['1.5rem', '1.25rem', '1rem'],
   };
