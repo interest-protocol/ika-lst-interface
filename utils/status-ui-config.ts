@@ -1,14 +1,31 @@
 export const getStatusUIConfig = (status: string) => {
   const baseButtonStyle = {
-    py: '0.8rem',
     border: 'none',
     fontSize: '1rem',
     fontWeight: '500',
-    borderRadius: '0.5rem',
-    display: 'inline-block',
-    width: ['100%', '100%', '6.815rem'],
-    marginTop: ['0.4rem', '0'],
-    px: ['1.5rem', '1.25rem', '1rem'],
+    borderRadius: '8px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: ['100%', '100%', '6.8125rem'],
+    height: '2.5rem',
+    padding: '8px 24px',
+    gap: '10px',
+    marginTop: '0',
+  };
+
+  const baseStatusStyle = {
+    fontWeight: '400',
+    height: '1.625rem',
+    padding: '4px 8px',
+    fontSize: '0.875rem',
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    alignItems: 'center',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    borderRadius: '1.6875rem',
+    letterSpacing: '0%',
   };
 
   const isTimeFormat = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(status);
@@ -16,6 +33,7 @@ export const getStatusUIConfig = (status: string) => {
   if (isTimeFormat) {
     return {
       statusStyle: {
+        ...baseStatusStyle,
         bg: '#FFFFFF14',
         color: '#FFFFFF',
       },
@@ -34,6 +52,7 @@ export const getStatusUIConfig = (status: string) => {
   const statusConfigs = {
     Withdrawing: {
       statusStyle: {
+        ...baseStatusStyle,
         bg: '#83F34E14',
         color: '#83F34E',
       },
@@ -48,6 +67,7 @@ export const getStatusUIConfig = (status: string) => {
     },
     'Ready to Get': {
       statusStyle: {
+        ...baseStatusStyle,
         bg: '#C484F614',
         color: '#C484F6',
       },
@@ -62,6 +82,7 @@ export const getStatusUIConfig = (status: string) => {
     },
     'Ready to Withdraw': {
       statusStyle: {
+        ...baseStatusStyle,
         bg: '#F5B72214',
         color: '#F5B722',
       },
@@ -76,6 +97,7 @@ export const getStatusUIConfig = (status: string) => {
     },
     Staked: {
       statusStyle: {
+        ...baseStatusStyle,
         bg: '#FFFFFF14',
         color: '#FFFFFF',
       },
@@ -92,6 +114,7 @@ export const getStatusUIConfig = (status: string) => {
 
   const defaultConfig = {
     statusStyle: {
+      ...baseStatusStyle,
       bg: '#FFFFFF14',
       color: '#FFFFFF',
     },

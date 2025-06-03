@@ -19,10 +19,10 @@ const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
 
   const borderRadius = getBorderRadius();
 
-  const hasToken = (
+  const hasAddress = (
     data: ILST | ILST_NFT | INativeStakedWal
   ): data is ILST_NFT => {
-    return 'token' in data && data.token !== undefined;
+    return 'address' in data && data.address !== undefined;
   };
 
   return (
@@ -48,17 +48,27 @@ const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
 
       {isNFT || tableType === 'staked' ? (
         <Div gap="0.1rem" display="flex" flexDirection="column">
-          {hasToken(data) && data.address && (
+          {hasAddress(data) && data.address && (
             <Span color="#FFFFFF" fontWeight="500" fontSize="1rem">
               {data.address}
             </Span>
           )}
-          <Span color="#FFFFFF" fontWeight="500" fontSize="0.75rem">
+          <Span
+            fontWeight="500"
+            color="#FFFFFF80"
+            fontSize="0.75rem"
+            fontFamily="JetBrains Mono"
+          >
             {data.symbol}
           </Span>
         </Div>
       ) : (
-        <Span color="#FFFFFF" fontWeight="400" fontSize="1rem">
+        <Span
+          color="#FFFFFF"
+          fontWeight="400"
+          fontSize="0.875rem"
+          fontFamily="JetBrains Mono"
+        >
           {data.symbol}
         </Span>
       )}

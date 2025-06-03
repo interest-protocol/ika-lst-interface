@@ -1,4 +1,4 @@
-import { Button, Div, P, Span } from '@stylin.js/elements';
+import { Button, Div, P, Span, SpanProps } from '@stylin.js/elements';
 import { FC } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import unikey from 'unikey';
@@ -63,15 +63,7 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
               alignItems="center"
               justifyContent="space-between"
             >
-              <Span
-                key={unikey()}
-                fontWeight="400"
-                textAlign="center"
-                borderRadius="16px"
-                fontSize="0.875rem"
-                padding="0.5rem 0.6rem"
-                {...statusStyle}
-              >
+              <Span key={unikey()} {...(statusStyle as SpanProps)}>
                 {data.status}
               </Span>
             </Div>

@@ -24,22 +24,30 @@ const ConnectWalletPortfolio: FC<IConnectWalletPortfolioProps> = ({
       justifyContent="center"
       border="1px solid #FFFFFF1A"
     >
-      <P color="#FFFFFF" fontFamily="JetBrains Mono">
+      <P
+        fontWeight="400"
+        color="#FFFFFFB2"
+        fontSize="1rem"
+        fontFamily="JetBrains Mono"
+      >
         Connect Wallet to Unlock Details
       </P>
       <WalletGuardButton
+        gap="10px"
         all="unset"
         bg="#EE2B5B"
-        py="0.75rem"
-        gap="0.5rem"
         display="flex"
         color="#F1F1F1"
         fontSize="1rem"
         fontWeight="500"
         cursor="pointer"
+        borderRadius="10px"
         alignItems="center"
-        borderRadius="0.75rem"
-        px={['0.75rem', '1rem']}
+        whiteSpace="nowrap"
+        padding="1rem 1.5rem"
+        px={['24px', '24px']}
+        justifyContent="center"
+        width={['100%', '8.25rem']}
       />
     </Div>
   </Div>

@@ -10,20 +10,31 @@ const EmptyStateMessage: FC = () => (
     justifyContent="center"
     flexDirection="column"
   >
-    <P mb="1rem" fontSize="1rem" color="#FFFFFF80">
+    <P
+      mb="1rem"
+      fontSize="1rem"
+      fontWeight="400"
+      color="#FFFFFFB2"
+      fontFamily="JetBrains Mono"
+    >
       You don’t have any records just yet
     </P>
     <Button
-      py="0.8rem"
+      gap="10px"
       border="none"
-      fontSize="16px"
-      fontWeight="500"
-      borderRadius="0.5rem"
-      display="inline-block"
+      fontSize="1rem"
       color="#FFFFFF"
-      px={['1.5rem', '1.25rem', '1rem']}
-      backgroundColor="#EE2B5B"
+      height="3.25rem"
       cursor="pointer"
+      fontWeight="500"
+      whiteSpace="nowrap"
+      alignItems="center"
+      padding="16px 24px"
+      borderRadius="10px"
+      display="inline-flex"
+      justifyContent="center"
+      backgroundColor="#EE2B5B"
+      width={['100%', '100%', '8.87rem']}
     >
       Start Staking
     </Button>
