@@ -6,8 +6,8 @@ import unikey from 'unikey';
 import { formatDollars } from '@/utils';
 import { getStatusUIConfig } from '@/utils/status-ui-config';
 
+import { IPortfolioTableRowProps as IPortfolioTableRowMetricsProps } from './portfolio-table-row.types';
 import PortfolioTableRowMetadata from './portfolio-table-row-metadata';
-import { IPortfolioTableRowMetricsProps } from './portfolio-table-row-metrics.types';
 
 const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
   data,

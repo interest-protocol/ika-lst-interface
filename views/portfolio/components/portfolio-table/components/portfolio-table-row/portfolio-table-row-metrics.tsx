@@ -6,10 +6,10 @@ import unikey from 'unikey';
 import { formatDollars } from '@/utils';
 import { getStatusUIConfig } from '@/utils/status-ui-config';
 
+import { IPortfolioTableRowProps } from './portfolio-table-row.types';
 import PortfolioTableRowMetadata from './portfolio-table-row-metadata';
-import { IPortfolioTableRowMetricsProps } from './portfolio-table-row-metrics.types';
 
-const PortfolioTableRowMetrics: FC<IPortfolioTableRowMetricsProps> = ({
+const PortfolioTableRowMetrics: FC<IPortfolioTableRowProps> = ({
   data,
   headers,
   tableType,
