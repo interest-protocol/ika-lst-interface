@@ -3,23 +3,19 @@ export interface IAsset {
   symbol: string;
   iconUrl: string;
 }
-
 export interface ILST extends IAsset {
   balance: string;
   price: number;
   value: number;
 }
-
 export interface INativeStakedWal extends IAsset {
   totalStaked: string;
   toWithdraw: number;
   status: string;
 }
-
 export interface ILST_NFT extends INativeStakedWal {
   address: string;
 }
-
 export interface ITableHeader {
   key: string;
   label: string;
@@ -27,16 +23,8 @@ export interface ITableHeader {
   format?: 'currency' | 'text' | 'number';
   type?: 'status' | 'data';
 }
-
 export interface IPortfolioTableHeaderProps {
   title: string;
   totalTokens?: string | number;
   totalValue?: number;
-}
-export interface IPortfolioTableRowProps {
-  data: ReadonlyArray<ILST | ILST_NFT | INativeStakedWal>;
-
-  headers: ReadonlyArray<ITableHeader>;
-  tableType?: 'basic' | 'staked' | 'nft';
-  onClick?: () => void;
 }

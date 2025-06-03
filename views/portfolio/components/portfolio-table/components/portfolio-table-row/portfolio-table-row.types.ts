@@ -1,12 +1,7 @@
-import {
-  ILST,
-  ILST_NFT,
-  INativeStakedWal,
-  ITableHeader,
-} from '../../portfolio-table.types';
-export interface IPortfolioTableRowProps {
-  data: ILST | ILST_NFT | INativeStakedWal;
+import { ITableHeader } from '../../portfolio-table.types';
+import { IPortfolioTableRowMetadataProps } from './portfolio-table-row-metadata.types';
+export interface IPortfolioTableRowProps
+  extends IPortfolioTableRowMetadataProps {
   headers: ReadonlyArray<ITableHeader>;
-  tableType?: 'basic' | 'staked' | 'nft';
   onClick?: () => void;
 }
