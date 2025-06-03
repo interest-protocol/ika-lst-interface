@@ -17,7 +17,7 @@ export interface INativeStakedWal extends IAsset {
 }
 
 export interface ILST_NFT extends INativeStakedWal {
-  token: string;
+  address: string;
 }
 
 export interface ITableHeader {

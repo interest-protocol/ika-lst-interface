@@ -4,7 +4,7 @@ export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
   {
     id: 'nft1',
     iconUrl: '/blizzard-nft.png',
-    token: '0xf25f...E5fa',
+    address: '0xf25f...E5fa',
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,
@@ -13,7 +13,7 @@ export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
   {
     id: 'nft2',
     iconUrl: '/blizzard-nft.png',
-    token: '0xf25f...E5fa',
+    address: '0xf25f...E5fa',
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,
@@ -22,7 +22,7 @@ export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
   {
     id: 'nft3',
     iconUrl: '/blizzard-nft.png',
-    token: '0xf25f...E5fa',
+    address: '0xf25f...E5fa',
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,
@@ -31,7 +31,7 @@ export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
   {
     id: 'nft4',
     iconUrl: '/blizzard-nft.png',
-    token: '0xf25f...E5fa',
+    address: '0xf25f...E5fa',
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,
@@ -40,7 +40,7 @@ export const LST_NFTS: ReadonlyArray<ILST_NFT> = [
   {
     id: 'nft5',
     iconUrl: '/blizzard-nft.png',
-    token: '0xf25f...E5fa',
+    address: '0xf25f...E5fa',
     symbol: 'Staked',
     totalStaked: '643,2',
     toWithdraw: 8723.231,

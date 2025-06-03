@@ -48,9 +48,9 @@ const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
 
       {isNFT || tableType === 'staked' ? (
         <Div gap="0.1rem" display="flex" flexDirection="column">
-          {hasToken(data) && data.token && (
+          {hasToken(data) && data.address && (
             <Span color="#FFFFFF" fontWeight="500" fontSize="1rem">
-              {data.token}
+              {data.address}
             </Span>
           )}
           <Span color="#FFFFFF" fontWeight="500" fontSize="0.75rem">
