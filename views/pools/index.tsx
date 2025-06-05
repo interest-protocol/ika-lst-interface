@@ -1,4 +1,4 @@
-import { Div } from '@stylin.js/elements';
+import { Div, Input, Label, P } from '@stylin.js/elements';
 import { FC, useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -11,8 +11,8 @@ import PoolsTable from './components/pools-table';
 import PoolsTabs from './components/pools-tabs';
 
 const Pools: FC = () => {
-  const form = useForm({ defaultValues: { search: '' } });
-  const { setTab } = useTabState();
+  const form = useForm({ defaultValues: { search: '', hideClosed: false } });
+  const { tab, setTab } = useTabState();
 
   useEffect(() => {
     setTab(0);
@@ -53,7 +53,53 @@ const Pools: FC = () => {
             alignItems={['stretch', 'center']}
           >
             <PoolsTabs />
-            <PoolsSearch />
+            <Div
+              display="flex"
+              gap="1rem"
+              alignItems="center"
+              whiteSpace="nowrap"
+            >
+              {tab === 1 && (
+                <Label
+                  display="flex"
+                  alignItems="center"
+                  gap="0.5rem"
+                  cursor="pointer"
+                >
+                  <P color="#FFFFFF80" fontSize="0.875rem">
+                    Hide Closed
+                  </P>
+                  <Div
+                    width="2.75rem"
+                    height="1.5rem"
+                    bg={form.watch('hideClosed') ? '#EE2B5B' : '#0000004D'}
+                    border="1px solid"
+                    borderColor="#EE2B5B66"
+                    borderRadius="0.75rem"
+                    position="relative"
+                    transition="all 0.3s ease"
+                  >
+                    <Input
+                      type="checkbox"
+                      id="hide-closed"
+                      {...form.register('hideClosed')}
+                      display="none"
+                    />
+                    <Div
+                      width="1.25rem"
+                      height="1.25rem"
+                      bg="#FFFFFF"
+                      borderRadius="50%"
+                      position="absolute"
+                      top="0.125rem"
+                      left={form.watch('hideClosed') ? '1.375rem' : '0.125rem'}
+                      transition="all 0.3s ease"
+                    />
+                  </Div>
+                </Label>
+              )}
+              <PoolsSearch />
+            </Div>
           </Div>
           <PoolsTable />
         </Div>
