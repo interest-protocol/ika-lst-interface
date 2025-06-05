@@ -6,6 +6,7 @@ import EmptyStateMessage from './components/portfolio-table-empty-state-message'
 import PortfolioTableHeader from './components/portfolio-table-header';
 import { IPortfolioTableProps } from './components/portfolio-table-header/table-header.types';
 import PortfolioTableRow from './components/portfolio-table-row';
+
 const PortfolioTable: FC<IPortfolioTableProps> = ({
   title,
   headers,

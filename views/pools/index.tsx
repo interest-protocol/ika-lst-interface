@@ -91,8 +91,8 @@ const Pools: FC = () => {
                       bg="#FFFFFF"
                       borderRadius="50%"
                       position="absolute"
-                      top="0.125rem"
-                      left={form.watch('hideClosed') ? '1.375rem' : '0.125rem'}
+                      top="0.1rem"
+                      left={form.watch('hideClosed') ? '1.3rem' : '0.125rem'}
                       transition="all 0.3s ease"
                     />
                   </Div>

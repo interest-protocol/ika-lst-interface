@@ -20,6 +20,7 @@ const PoolsSearch: FC = () => {
       alignItems="center"
       borderRadius="0.625rem"
       maxWidth={['100%', '17.625rem']}
+      flexShrink={0}
     >
       <SearchSVG maxWidth="1rem" maxHeight="1rem" width="100%" />
       <Input

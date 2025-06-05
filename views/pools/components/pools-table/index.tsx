@@ -1,4 +1,5 @@
 import { POOLS } from '@interest-protocol/interest-stable-swap-sdk';
+import { useCurrentAccount } from '@mysten/dapp-kit';
 import { normalizeStructTag } from '@mysten/sui/utils';
 import { Div, P } from '@stylin.js/elements';
 import { toPairs } from 'ramda';
@@ -6,6 +7,7 @@ import { FC, useMemo } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 import unikey from 'unikey';
 
+import WalletGuardButton from '@/components/wallet-button/wallet-guard-button';
 import { useAppState } from '@/hooks/use-app-state';
 import { useTabState } from '@/hooks/use-tab-manager';
 
@@ -16,6 +18,8 @@ const PoolsTable: FC = () => {
   const { balances } = useAppState();
   const { control } = useFormContext();
   const search = useWatch({ control, name: 'search' });
+  const hideClosed = useWatch({ control, name: 'hideClosed' });
+  const currentAccount = useCurrentAccount();
 
   const pools = useMemo(
     () =>
@@ -35,7 +39,7 @@ const PoolsTable: FC = () => {
           if (!foundToken) return false;
         }
 
-        const isMyPosition = !!tab;
+        const isMyPosition = tab === 1;
 
         if (!isMyPosition) return true;
 
@@ -43,10 +47,65 @@ const PoolsTable: FC = () => {
           balances[normalizeStructTag(lpCoinType)] &&
           !balances[normalizeStructTag(lpCoinType)].isZero();
 
-        return hasLPToken;
+        if (hideClosed) return hasLPToken;
+
+        return true;
       }),
-    [tab, balances, search]
+    [tab, balances, search, hideClosed]
   );
+
+  if (tab === 1 && !currentAccount) {
+    return (
+      <Div
+        p="1rem"
+        bg="#FFFFFF0D"
+        display="flex"
+        overflowX="auto"
+        border="1px solid"
+        borderRadius="1rem"
+        alignItems="stretch"
+        flexDirection="column"
+        borderColor="#FFFFFF1A"
+        gap={['0.5rem', '1rem']}
+      >
+        <Div
+          width="100%"
+          gap="1rem"
+          display="flex"
+          minHeight="12rem"
+          borderRadius="6px"
+          alignItems="center"
+          flexDirection="column"
+          justifyContent="center"
+        >
+          <P
+            fontSize="1rem"
+            fontWeight="400"
+            color="#FFFFFFB2"
+            fontFamily="JetBrains Mono"
+          >
+            Connect Wallet to Unlock Details
+          </P>
+          <WalletGuardButton
+            gap="10px"
+            all="unset"
+            bg="#EE2B5B"
+            display="flex"
+            color="#000000"
+            fontSize="1rem"
+            fontWeight="500"
+            cursor="pointer"
+            borderRadius="10px"
+            alignItems="center"
+            whiteSpace="nowrap"
+            padding="1rem 1.5rem"
+            justifyContent="center"
+            width={['100%', '10.25rem']}
+          />
+        </Div>
+      </Div>
+    );
+  }
 
   return (
     <Div
@@ -74,18 +133,6 @@ const PoolsTable: FC = () => {
             Pool
           </P>
         </Div>
-        {!!tab && (
-          <Div
-            gap="0.25rem"
-            alignItems="center"
-            justifyContent="center"
-            display={['none', 'flex']}
-          >
-            <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
-              Position
-            </P>
-          </Div>
-        )}
         <Div
           gap="0.25rem"
           alignItems="center"
@@ -126,18 +173,16 @@ const PoolsTable: FC = () => {
             7D Vol
           </P>
         </Div>
-        {!tab && (
-          <Div
-            gap="0.25rem"
-            alignItems="center"
-            justifyContent="center"
-            display={['none', 'flex']}
-          >
-            <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
-              30D Vol
-            </P>
-          </Div>
-        )}
+        <Div
+          gap="0.25rem"
+          alignItems="center"
+          justifyContent="center"
+          display={['none', 'flex']}
+        >
+          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+            30D Vol
+          </P>
+        </Div>
       </Div>
       <Div>
         {pools.length === 0 ? (
@@ -145,11 +190,16 @@ const PoolsTable: FC = () => {
             py="2rem"
             width="100%"
             display="flex"
-            justifyContent="center"
             alignItems="center"
+            justifyContent="center"
           >
-            <P color="#FFFFFF80" fontSize="1rem">
-              No pools found.
+            <P
+              fontSize="1rem"
+              fontWeight="400"
+              color="#FFFFFF80"
+              fontFamily="JetBrains Mono"
+            >
+              {tab === 1 ? 'No results.' : 'No result found for “ search “'}
             </P>
           </Div>
         ) : (
@@ -159,7 +209,7 @@ const PoolsTable: FC = () => {
               id={key}
               key={unikey()}
               position={
-                tab ? balances[normalizeStructTag(pool.lpCoinType)] : null
+                tab === 1 ? balances[normalizeStructTag(pool.lpCoinType)] : null
               }
             />
           ))
