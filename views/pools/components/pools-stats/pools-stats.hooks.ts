@@ -44,13 +44,15 @@ export const usePoolsMetricsOvertime = (
       const latestFees = Number(data.toReversed()[0].fees ?? 0);
       const latestVolume = Number(data.toReversed()[0].volume ?? 0);
 
-      const tvlOvertime = filteredData.map((pool) => ({
-        y: parseFloat(pool.tvl),
-        x: new Date(pool.epoch).toLocaleDateString('en-US', {
-          weekday: 'short',
-          day: '2-digit',
-        }),
-      }));
+      const tvlOvertime = filteredData.map((pool) => {
+        const date = new Date(pool.epoch);
+        const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const day = date.toLocaleDateString('en-US', { day: '2-digit' });
+        return {
+          y: parseFloat(pool.tvl),
+          x: `${weekday}, ${day}`,
+        };
+      });
 
       const volumeOvertime = data.map((pool) => ({
         y: parseFloat(pool.volume),
