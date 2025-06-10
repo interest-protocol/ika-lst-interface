@@ -66,7 +66,7 @@ const Pools: FC = () => {
                   gap="0.5rem"
                   cursor="pointer"
                 >
-                  <P color="#FFFFFF80" fontSize="0.875rem">
+                  <P color="#FFFFFF" fontSize="0.875rem">
                     Hide Closed
                   </P>
                   <Div
