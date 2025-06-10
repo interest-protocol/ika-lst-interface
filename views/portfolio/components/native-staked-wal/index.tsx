@@ -15,7 +15,7 @@ const NativeStakedWal: FC = () => {
   return (
     <PortfolioTable
       totalTokens="30"
-      tableType="staked"
+      tableType="basic"
       title="Native StakedWAL"
       data={NATIVE_STALKED_WAL}
       totalValue={381.242324202}
