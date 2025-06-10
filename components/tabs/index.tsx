@@ -19,7 +19,8 @@ const Tabs: FC<TabsProps> = ({ setTab, tab, tabs }) => (
         onClick={() => setTab(index)}
         color={'white'}
         bg={tab === index ? '#EE2B5B' : 'transparent'}
-        borderColor={tab === index ? 'transparent' : '#EE2B5B'}
+        fontWeight={tab === index ? '500' : '400'}
+        borderColor={tab === index ? 'transparent' : '#EE2B5B66'}
       >
         {text}
       </Button>
