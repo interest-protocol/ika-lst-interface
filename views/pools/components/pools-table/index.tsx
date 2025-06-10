@@ -170,7 +170,7 @@ const PoolsTable: FC = () => {
           display={['none', 'flex']}
         >
           <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
-            7D Vol
+            30D Vol
           </P>
         </Div>
         <Div
@@ -180,7 +180,7 @@ const PoolsTable: FC = () => {
           display={['none', 'flex']}
         >
           <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
-            30D Vol
+            1D Vol/TVL
           </P>
         </Div>
       </Div>
