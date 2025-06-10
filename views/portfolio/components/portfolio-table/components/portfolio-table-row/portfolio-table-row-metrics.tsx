@@ -43,6 +43,7 @@ const PortfolioTableRowMetrics: FC<IPortfolioTableRowProps> = ({
             fontSize="1rem"
             fontWeight="400"
             textAlign="center"
+            fontFamily="JetBrains Mono"
           >
             {isLoading ? (
               <Skeleton width="4rem" />

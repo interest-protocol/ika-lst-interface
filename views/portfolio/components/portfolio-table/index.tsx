@@ -49,7 +49,7 @@ const PortfolioTable: FC<IPortfolioTableProps> = ({
             {headers.map((header) => (
               <P
                 key={unikey()}
-                color="#FFFFFF80"
+                color="#FFFFFFB2"
                 fontSize="0.875rem"
                 fontWeight="400"
                 fontFamily="JetBrains Mono"

@@ -43,7 +43,12 @@ const PortfolioTableRowMetricsMobile: FC<IPortfolioTableRowMetricsProps> = ({
               <P color="#FFFFFF80" fontSize="0.875rem">
                 {header.label}:
               </P>
-              <Span color="#FFFFFF" fontWeight="500" fontSize="0.875rem">
+              <Span
+                color="#FFFFFF"
+                fontWeight="500"
+                fontSize="0.875rem"
+                fontFamily="JetBrains Mono"
+              >
                 {isLoading ? (
                   <Skeleton width="4rem" />
                 ) : header.format === 'currency' ? (
