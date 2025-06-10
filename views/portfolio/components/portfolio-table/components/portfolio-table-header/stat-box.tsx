@@ -10,7 +10,7 @@ const StatBox: FC<PropsWithChildren> = ({ children }) => (
   >
     <Span
       color="#FFFFFF"
-      fontWeight="500"
+      fontWeight="400"
       fontFamily="JetBrains Mono"
       fontSize={['0.875rem', '1rem']}
     >

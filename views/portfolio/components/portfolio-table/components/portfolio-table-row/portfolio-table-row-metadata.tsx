@@ -49,16 +49,16 @@ const PortfolioTableRowMetadata: FC<IPortfolioTableRowMetadataProps> = ({
       {isNFT || tableType === 'staked' ? (
         <Div gap="0.1rem" display="flex" flexDirection="column">
           {hasAddress(data) && data.address && (
-            <Span color="#FFFFFF" fontWeight="500" fontSize="1rem">
+            <Span
+              color="#FFFFFF"
+              fontWeight="500"
+              fontSize="0.875rem"
+              fontFamily="JetBrains Mono"
+            >
               {data.address}
             </Span>
           )}
-          <Span
-            fontWeight="500"
-            color="#FFFFFF80"
-            fontSize="0.75rem"
-            fontFamily="JetBrains Mono"
-          >
+          <Span fontWeight="500" color="#FFFFFF80" fontSize="0.75rem">
             {data.symbol}
           </Span>
         </Div>
