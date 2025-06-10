@@ -1,0 +1,68 @@
+import { ILST } from '../portfolio-table/portfolio-table.types';
+
+export const LSTS: ReadonlyArray<ILST> = [
+  {
+    id: 'wal',
+    symbol: 'WAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'swal',
+    symbol: 'sWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'upwal',
+    symbol: 'upWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'mwal',
+    symbol: 'mWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'awal',
+    symbol: 'aWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'bwal',
+    symbol: 'bWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'pwal',
+    symbol: 'pWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+  {
+    id: 'nwal',
+    symbol: 'nWAL',
+    iconUrl: '/blizzard-nft.png',
+    balance: '643,2',
+    price: 8242.242323,
+    value: 7249.24232,
+  },
+];

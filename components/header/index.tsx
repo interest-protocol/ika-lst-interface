@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 import Settings from '../settings';
 import Logo from '../svg/logo';
+import MobileLogo from '../svg/mobile-logo';
 import WalletButton from '../wallet-button';
 import HeaderTVL from './header-tvl';
 import Navbar from './navbar';
@@ -19,8 +20,13 @@ const Header: FC = () => (
     justifyContent="space-between"
   >
     <Div display="flex" alignItems="center" gap={['0.5rem', '1rem', '2rem']}>
-      <Div display="flex" alignItems="center" gap="1rem">
-        <Logo maxWidth="104" maxHeight="52" />
+      <Div gap="1rem" display="flex" alignItems="center">
+        <Div display={['block', 'none']}>
+          <MobileLogo maxWidth="32" maxHeight="32" />
+        </Div>
+        <Div display={['none', 'block']}>
+          <Logo maxWidth="104" maxHeight="52" />
+        </Div>
       </Div>
       <Navbar />
     </Div>
