@@ -127,7 +127,11 @@ const PoolsTable: FC = () => {
         gridTemplateColumns={['1fr 1fr', '2fr repeat(5, 1fr) 43px']}
       >
         <Div gap="0.25rem" display={['none', 'flex']} alignItems="center">
-          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+          <P
+            fontFamily="JetBrains Mono"
+            whiteSpace="nowrap"
+            lineHeight="1.25rem"
+          >
             Pool
           </P>
         </Div>
@@ -137,7 +141,11 @@ const PoolsTable: FC = () => {
           justifyContent="center"
           display={['none', 'flex']}
         >
-          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+          <P
+            fontFamily="JetBrains Mono"
+            whiteSpace="nowrap"
+            lineHeight="1.25rem"
+          >
             TVL
           </P>
         </Div>
@@ -147,7 +155,11 @@ const PoolsTable: FC = () => {
           justifyContent="center"
           display={['none', 'flex']}
         >
-          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+          <P
+            fontFamily="JetBrains Mono"
+            whiteSpace="nowrap"
+            lineHeight="1.25rem"
+          >
             APR
           </P>
         </Div>
@@ -157,7 +169,11 @@ const PoolsTable: FC = () => {
           justifyContent="center"
           display={['none', 'flex']}
         >
-          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+          <P
+            fontFamily="JetBrains Mono"
+            whiteSpace="nowrap"
+            lineHeight="1.25rem"
+          >
             1D Vol
           </P>
         </Div>
@@ -167,7 +183,11 @@ const PoolsTable: FC = () => {
           justifyContent="center"
           display={['none', 'flex']}
         >
-          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+          <P
+            fontFamily="JetBrains Mono"
+            whiteSpace="nowrap"
+            lineHeight="1.25rem"
+          >
             30D Vol
           </P>
         </Div>
@@ -177,7 +197,11 @@ const PoolsTable: FC = () => {
           justifyContent="center"
           display={['none', 'flex']}
         >
-          <P fontFamily="JetBrains Mono" whiteSpace="nowrap">
+          <P
+            fontFamily="JetBrains Mono"
+            whiteSpace="nowrap"
+            lineHeight="1.25rem"
+          >
             1D Vol/TVL
           </P>
         </Div>
