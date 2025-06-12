@@ -21,6 +21,7 @@ const PoolRowButton: FC = () => (
       justifyContent="center"
       borderRadius="0.375rem"
       border="1px solid #EE2B5B"
+      color="#EE2B5B"
     >
       +
     </Div>

@@ -19,6 +19,8 @@ const LiquidityPools: FC = () => {
       borderRadius="1rem"
       flexDirection="column"
       borderColor="#FFFFFF1A"
+      width={['100%', '100%', '100%', '16.4375rem']}
+      minWidth={['unset', 'unset', '16.4375rem']}
     >
       <H2 fontWeight="600" fontSize="1rem" color="#FFFFFF">
         Liquidity Pools
@@ -37,7 +39,7 @@ const LiquidityPools: FC = () => {
           flexDirection="column"
           borderRadius="0.625rem"
           borderColor="#FFFFFF1A"
-          minWidth="max-content"
+          minWidth={['100%', '100%', 'max-content']}
         >
           {isLoading ? (
             <>
@@ -46,10 +48,17 @@ const LiquidityPools: FC = () => {
             </>
           ) : (
             <>
-              <P color="#FFFFFF" fontFamily="JetBrains Mono">
+              <P
+                color="#FFFFFF"
+                fontSize="1rem"
+                fontWeight="500"
+                fontFamily="JetBrains Mono"
+              >
                 {metrics ? formatDollars(Number(metrics.tvl)) : '--'}
               </P>
-              <P color="#FFFFFF80">Total Value Locked</P>
+              <P fontWeight="500" color="#FFFFFF80" fontSize="0.875rem">
+                Total Value Locked
+              </P>
             </>
           )}
         </Div>
@@ -62,7 +71,7 @@ const LiquidityPools: FC = () => {
           flexDirection="column"
           borderRadius="0.625rem"
           borderColor="#FFFFFF1A"
-          minWidth="max-content"
+          minWidth={['100%', '100%', 'max-content']}
         >
           {isLoading ? (
             <>
@@ -71,10 +80,17 @@ const LiquidityPools: FC = () => {
             </>
           ) : (
             <>
-              <P color="#FFFFFF" fontFamily="JetBrains Mono">
+              <P
+                color="#FFFFFF"
+                fontSize="1rem"
+                fontWeight="500"
+                fontFamily="JetBrains Mono"
+              >
                 {metrics ? formatDollars(Number(metrics.volume)) : '--'}
               </P>
-              <P color="#FFFFFF80">Cumulative Volume</P>
+              <P fontWeight="500" color="#FFFFFF80" fontSize="0.875rem">
+                Cumulative Volume
+              </P>
             </>
           )}
         </Div>

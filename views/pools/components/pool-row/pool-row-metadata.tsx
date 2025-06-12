@@ -29,6 +29,28 @@ const PoolRowMetadata: FC<PoolRowMetadataProps> = ({ lpCoinType }) => {
       ) : (
         <Span whiteSpace="nowrap">{metadata?.[lpCoinType]?.symbol}</Span>
       )}
+      {metadataLoading ? (
+        <Skeleton width="0.875rem" height="0.9375rem" />
+      ) : (
+        <Div
+          display="flex"
+          bg="#FFFFFF14"
+          width="1.875rem"
+          height="1.4375rem"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="1.6875rem"
+        >
+          <Span
+            fontWeight="400"
+            color="#FFFFFF"
+            fontSize="0.75rem"
+            whiteSpace="nowrap"
+          >
+            v3
+          </Span>
+        </Div>
+      )}
     </Div>
   );
 };
