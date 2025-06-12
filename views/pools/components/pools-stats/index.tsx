@@ -34,18 +34,25 @@ const PoolsPerformance: FC = () => {
           <P color="#FFFFFF80">Total Value Locked</P>
         </Div>
         <Div
-          p="0.25rem"
-          gap="0.5rem"
+          gap="0.25rem"
+          padding="4px"
           display="flex"
-          border="1px solid #EE2B5B4D"
+          width="4.75rem"
+          height="1.625rem"
+          alignItems="center"
           borderRadius="0.25rem"
+          border="1px solid #EE2B5B4D"
         >
           {(['D', 'W', 'M'] as const).map((intendedInterval) => (
             <Div
-              fontSize="0.875rem"
+              width="1.25rem"
+              height="1.125rem"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              fontSize="0.75rem"
               borderRadius="0.25rem"
               key={intendedInterval}
-              padding="0.5rem 0.75rem"
               onClick={() => setInterval(intendedInterval)}
               color="#FFFFFFB2"
               pointerEvents={interval === intendedInterval ? 'none' : undefined}
