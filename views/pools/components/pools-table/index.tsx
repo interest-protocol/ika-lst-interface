@@ -23,7 +23,7 @@ const PoolsTable: FC = () => {
 
   const pools = useMemo(
     () =>
-      toPairs(POOLS).filter(([, { lpCoinType, coinTypes }]) => {
+      toPairs(POOLS).filter(([, { lpCoinType, coinTypes, status }]) => {
         const normalizedSearch = search.trim().toLowerCase();
 
         if (normalizedSearch) {
@@ -37,17 +37,21 @@ const PoolsTable: FC = () => {
           if (!foundLPToken && !foundAnyToken) return false;
         }
 
-        const isMyPosition = tab === 1;
+        if (tab === 1) {
+          const hasLPToken =
+            balances[normalizeStructTag(lpCoinType)] &&
+            !balances[normalizeStructTag(lpCoinType)].isZero();
 
-        if (!isMyPosition) {
-          return true;
+          if (hideClosed) {
+            return hasLPToken && status === true;
+          }
+          return hasLPToken;
         }
 
-        const hasLPToken =
-          balances[normalizeStructTag(lpCoinType)] &&
-          !balances[normalizeStructTag(lpCoinType)].isZero();
-
-        return hideClosed ? hasLPToken : hasLPToken;
+        if (hideClosed) {
+          return status === true;
+        }
+        return true;
       }),
     [tab, balances, search, hideClosed]
   );
@@ -235,7 +239,7 @@ const PoolsTable: FC = () => {
               position={
                 tab === 1 ? balances[normalizeStructTag(pool.lpCoinType)] : null
               }
-              status={false}
+              status={pool.status}
             />
           ))
         )}
