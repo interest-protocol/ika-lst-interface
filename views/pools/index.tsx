@@ -22,49 +22,51 @@ const Pools: FC = () => {
     <Layout>
       <FormProvider {...form}>
         <Div
-          flex="1"
           mx="auto"
-          gap="1rem"
           width="100%"
+          gap="2rem"
           display="flex"
-          borderRadius="1rem"
+          maxWidth="53.5rem"
+          my={['1rem', '3rem']}
           flexDirection="column"
           px={['0.5rem', '2rem']}
-          maxWidth={['100%', '51.5rem']}
-          my={['1rem', '1rem', '1rem', '1rem', '3rem']}
         >
           <Div
-            width="100%"
-            display="grid"
-            color="#FFFFFF80"
-            fontSize="0.875rem"
-            gap={['0.5rem', '1rem']}
-            gridTemplateColumns={['1fr', '1fr', '1fr 3fr']}
-          >
-            <LiquidityPools />
-            <PoolsPerformance />
-          </Div>
-          <Div
-            width="100%"
+            gap="1rem"
             display="flex"
-            gap={['0.5rem', '1rem']}
+            justifyContent="space-between"
+            width={['100%', '100%', '100%', '53.5rem']}
+            flexDirection={['column', 'column', 'column', 'row']}
+          >
+            <Div flexShrink="0" width={['100%', '100%', '100%', '16.4375rem']}>
+              <LiquidityPools />
+            </Div>
+            <Div width={['100%', '100%', '100%', '36.0625rem']}>
+              <PoolsPerformance />
+            </Div>
+          </Div>
+
+          <Div
+            gap="1rem"
+            display="flex"
             justifyContent="space-between"
             flexDirection={['column', 'row']}
             alignItems={['stretch', 'center']}
+            width={['100%', '100%', '100%', '53.5rem']}
           >
             <PoolsTabs />
             <Div
-              display="flex"
               gap="1rem"
+              display="flex"
               alignItems="center"
               whiteSpace="nowrap"
             >
               {tab === 1 && (
                 <Label
-                  display="flex"
-                  alignItems="center"
                   gap="0.5rem"
+                  display="flex"
                   cursor="pointer"
+                  alignItems="center"
                 >
                   <P color="#FFFFFF" fontSize="0.875rem">
                     Hide Closed
@@ -72,28 +74,28 @@ const Pools: FC = () => {
                   <Div
                     width="2.75rem"
                     height="1.5rem"
-                    bg={form.watch('hideClosed') ? '#EE2B5B' : '#0000004D'}
                     border="1px solid"
-                    borderColor="#EE2B5B66"
-                    borderRadius="0.75rem"
                     position="relative"
+                    borderRadius="0.75rem"
+                    borderColor="#EE2B5B66"
                     transition="all 0.3s ease"
+                    bg={form.watch('hideClosed') ? '#EE2B5B' : '#0000004D'}
                   >
                     <Input
                       type="checkbox"
+                      display="none"
                       id="hide-closed"
                       {...form.register('hideClosed')}
-                      display="none"
                     />
                     <Div
+                      top="0.1rem"
+                      bg="#FFFFFF"
                       width="1.25rem"
                       height="1.25rem"
-                      bg="#FFFFFF"
                       borderRadius="50%"
                       position="absolute"
-                      top="0.1rem"
-                      left={form.watch('hideClosed') ? '1.3rem' : '0.125rem'}
                       transition="all 0.3s ease"
+                      left={form.watch('hideClosed') ? '1.3rem' : '0.125rem'}
                     />
                   </Div>
                 </Label>
@@ -101,6 +103,7 @@ const Pools: FC = () => {
               <PoolsSearch />
             </Div>
           </Div>
+
           <PoolsTable />
         </Div>
       </FormProvider>

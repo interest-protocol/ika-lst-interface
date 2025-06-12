@@ -8,16 +8,18 @@ import { usePoolsMetricsOvertime } from './pools-stats.hooks';
 
 const PoolsPerformance: FC = () => {
   const { latestTvl } = usePoolsMetricsOvertime();
-
   const [interval, setInterval] = useState<'D' | 'W' | 'M'>('D');
 
   return (
     <Div
       p="1rem"
+      flex="1"
       bg="#FFFFFF0D"
       border="1px solid"
       borderRadius="1rem"
       borderColor="#FFFFFF1A"
+      minWidth={['unset', 'unset', 'unset', '36.0625rem']}
+      width={['100%', '100%', '100%', 'calc(100% - 17.4375rem)']}
     >
       <Div
         mb="0.5rem"
