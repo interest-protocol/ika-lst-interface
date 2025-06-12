@@ -18,7 +18,7 @@ export const PoolsChart: FC<PoolsChartProps> = ({ agg }) => {
       <Line
         options={poolsChartOptions}
         data={getChartsData(tvlOvertime)}
-        style={{ height: '11.73rem', width: '100%' }}
+        style={{ height: '11.91rem', width: '100%' }}
       />
     </Div>
   );
