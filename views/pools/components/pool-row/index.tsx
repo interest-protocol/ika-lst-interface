@@ -14,6 +14,8 @@ const PoolRow: FC<Omit<PoolRowProps, 'objectId'>> = ({
   id,
   position,
   lpCoinType,
+  status,
+  tab,
 }) => (
   <Link href={`${Routes[RoutesEnum.Pools]}/${id}`} shallow>
     <Div
@@ -27,6 +29,7 @@ const PoolRow: FC<Omit<PoolRowProps, 'objectId'>> = ({
       gap={['0.25rem', 'unset']}
       display={['grid', 'none']}
       gridTemplateColumns="1fr auto"
+      bg={tab === 1 && !status ? '#FFFFFF33' : 'transparent'}
     >
       <PoolRowMetadata lpCoinType={lpCoinType} />
       <PoolRowButton />
@@ -55,7 +58,11 @@ const PoolRow: FC<Omit<PoolRowProps, 'objectId'>> = ({
       gap={['0.25rem', 'unset']}
       display={['none', 'grid']}
       gridTemplateColumns="2fr repeat(5, 1fr) 43px"
-      nHover={{ borderColor: '#EE2B5BD', bg: '#EE2B5B33' }}
+      bg={tab === 1 && !status ? '#FFFFFF33' : 'transparent'}
+      nHover={{
+        borderColor: '#EE2B5BD',
+        bg: tab === 1 && !status ? '#FFFFFF4D' : '#EE2B5B33',
+      }}
     >
       <PoolRowMetadata lpCoinType={lpCoinType} />
       <PoolRowMetrics position={position} />

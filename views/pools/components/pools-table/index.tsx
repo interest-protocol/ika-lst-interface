@@ -34,22 +34,20 @@ const PoolsTable: FC = () => {
             ct.toLowerCase().includes(normalizedSearch)
           );
 
-          const foundToken = foundLPToken || foundAnyToken;
-
-          if (!foundToken) return false;
+          if (!foundLPToken && !foundAnyToken) return false;
         }
 
         const isMyPosition = tab === 1;
 
-        if (!isMyPosition) return true;
+        if (!isMyPosition) {
+          return true;
+        }
 
         const hasLPToken =
           balances[normalizeStructTag(lpCoinType)] &&
           !balances[normalizeStructTag(lpCoinType)].isZero();
 
-        if (hideClosed) return hasLPToken;
-
-        return true;
+        return hideClosed ? hasLPToken : hasLPToken;
       }),
     [tab, balances, search, hideClosed]
   );
@@ -208,9 +206,11 @@ const PoolsTable: FC = () => {
               {...pool}
               id={key}
               key={unikey()}
+              tab={tab}
               position={
                 tab === 1 ? balances[normalizeStructTag(pool.lpCoinType)] : null
               }
+              status={false}
             />
           ))
         )}
