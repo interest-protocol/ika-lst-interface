@@ -239,7 +239,7 @@ const PoolsTable: FC = () => {
               position={
                 tab === 1 ? balances[normalizeStructTag(pool.lpCoinType)] : null
               }
-              status={pool.status}
+              status={false}
             />
           ))
         )}
